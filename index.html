@@ -55,28 +55,28 @@
             <h2>2. Base de salade <span class="required">*</span></h2>
             <div class="options required-options">
                 <h3>Salades vertes</h3>
-                <label><input type="radio" name="base" value="salade_laitue" onchange="enableNext(2)"> Laitue</label>
-                <label><input type="radio" name="base" value="salade_roquette" onchange="enableNext(2)"> Roquette</label>
-                <label><input type="radio" name="base" value="salade_epinards" onchange="enableNext(2)"> Épinards</label>
-                <label><input type="radio" name="base" value="salade_mesclun" onchange="enableNext(2)"> Mesclun</label>
-                
+                <label><input type="checkbox" name="base" value="salade_laitue" onchange="enableNext(2)"> Laitue</label>
+                <label><input type="checkbox" name="base" value="salade_roquette" onchange="enableNext(2)"> Roquette</label>
+                <label><input type="checkbox" name="base" value="salade_epinards" onchange="enableNext(2)"> Épinards</label>
+                <label><input type="checkbox" name="base" value="salade_mesclun" onchange="enableNext(2)"> Mesclun</label>
+
                 <h3>Riz</h3>
-                <label><input type="radio" name="base" value="riz_blanc" onchange="enableNext(2)"> Blanc (+1DA)</label>
-                <label><input type="radio" name="base" value="riz_complet" onchange="enableNext(2)"> Complet (+1.5DA)</label>
-                <label><input type="radio" name="base" value="riz_basmati" onchange="enableNext(2)"> Basmati (+1.5DA)</label>
-                <label><input type="radio" name="base" value="riz_sauvage" onchange="enableNext(2)"> Sauvage (+2DA)</label>
-                
+                <label><input type="checkbox" name="base" value="riz_blanc" onchange="enableNext(2)"> Blanc (+1DA)</label>
+                <label><input type="checkbox" name="base" value="riz_complet" onchange="enableNext(2)"> Complet (+1.5DA)</label>
+                <label><input type="checkbox" name="base" value="riz_basmati" onchange="enableNext(2)"> Basmati (+1.5DA)</label>
+                <label><input type="checkbox" name="base" value="riz_sauvage" onchange="enableNext(2)"> Sauvage (+2DA)</label>
+
                 <h3>Pâtes</h3>
-                <label><input type="radio" name="base" value="pates_penne" onchange="enableNext(2)"> Penne</label>
-                <label><input type="radio" name="base" value="pates_fusilli" onchange="enableNext(2)"> Fusilli</label>
-                <label><input type="radio" name="base" value="pates_farfalle" onchange="enableNext(2)"> Farfalle</label>
-                <label><input type="radio" name="base" value="pates_orecchiette" onchange="enableNext(2)"> Orecchiette</label>
-                
+                <label><input type="checkbox" name="base" value="pates_penne" onchange="enableNext(2)"> Penne</label>
+                <label><input type="checkbox" name="base" value="pates_fusilli" onchange="enableNext(2)"> Fusilli</label>
+                <label><input type="checkbox" name="base" value="pates_farfalle" onchange="enableNext(2)"> Farfalle</label>
+                <label><input type="checkbox" name="base" value="pates_orecchiette" onchange="enableNext(2)"> Orecchiette</label>
+
                 <h3>Autres bases</h3>
-                <label><input type="radio" name="base" value="quinoa" onchange="enableNext(2)"> Quinoa (+2DA)</label>
-                <label><input type="radio" name="base" value="boulgour" onchange="enableNext(2)"> Boulgour (+1.5DA)</label>
-                <label><input type="radio" name="base" value="lentilles" onchange="enableNext(2)"> Lentilles (+1.5DA)</label>
-                <label><input type="radio" name="base" value="couscous" onchange="enableNext(2)"> Couscous perlé (+1.5DA)</label>
+                <label><input type="checkbox" name="base" value="quinoa" onchange="enableNext(2)"> Quinoa (+2DA)</label>
+                <label><input type="checkbox" name="base" value="boulgour" onchange="enableNext(2)"> Boulgour (+1.5DA)</label>
+                <label><input type="checkbox" name="base" value="lentilles" onchange="enableNext(2)"> Lentilles (+1.5DA)</label>
+                <label><input type="checkbox" name="base" value="couscous" onchange="enableNext(2)"> Couscous perlé (+1.5DA)</label>
             </div>
         </div>
         <div class="nav-footer">
@@ -179,21 +179,22 @@
             <h2>5. Choix de la sauce</h2>
             <div class="options">
                 <h3>Sauces classiques</h3>
-                <label><input type="radio" name="sauce" value="mayonnaise"> Mayonnaise (+0.5DA)</label>
-                <label><input type="radio" name="sauce" value="ketchup"> Ketchup (+0.5DA)</label>
-                <label><input type="radio" name="sauce" value="moutarde"> Moutarde (+0.5DA)</label>
-                <label><input type="radio" name="sauce" value="algerienne"> Sauce algérienne (+1DA)</label>
-                <label><input type="radio" name="sauce" value="barbecue"> Sauce barbecue (+1DA)</label>
-                
+           
+                <label><input type="checkbox" name="sauce" value="mayonnaise" onchange="saveCurrentStep()"> Mayonnaise (+0.5DA)</label>
+                <label><input type="checkbox" name="sauce" value="ketchup" onchange="saveCurrentStep()"> Ketchup (+0.5DA)</label>
+                <label><input type="checkbox" name="sauce" value="moutarde" onchange="saveCurrentStep()"> Moutarde (+0.5DA)</label>
+                <label><input type="checkbox" name="sauce" value="algerienne" onchange="saveCurrentStep()"> Sauce algérienne (+1DA)</label>
+                <label><input type="checkbox" name="sauce" value="barbecue" onchange="saveCurrentStep()"> Sauce barbecue (+1DA)</label>
+
                 <h3>Sauces spéciales</h3>
-                <label><input type="radio" name="sauce" value="pesto"> Pesto (+1DA)</label>
-                <label><input type="radio" name="sauce" value="fromagere"> Sauce fromagère (+1.2DA)</label>
-                <label><input type="radio" name="sauce" value="yaourt_citron"> Sauce yaourt-citron (+1DA)</label>
-                <label><input type="radio" name="sauce" value="cesar"> Sauce césar (+1DA)</label>
-                <label><input type="radio" name="sauce" value="balsamique"> Vinaigrette balsamique (+1DA)</label>
-                <label><input type="radio" name="sauce" value="miel_moutarde"> Sauce miel-moutarde (+1DA)</label>
-                <label><input type="radio" name="sauce" value="sesame"> Sauce sésame (+1.2DA)</label>
-                <label><input type="radio" name="sauce" value="ranch"> Sauce ranch (+1DA)</label>
+                <label><input type="checkbox" name="sauce" value="pesto" onchange="saveCurrentStep()"> Pesto (+1DA)</label>
+                <label><input type="checkbox" name="sauce" value="fromagere" onchange="saveCurrentStep()"> Sauce fromagère (+1.2DA)</label>
+                <label><input type="checkbox" name="sauce" value="yaourt_citron" onchange="saveCurrentStep()"> Sauce yaourt-citron (+1DA)</label>
+                <label><input type="checkbox" name="sauce" value="cesar" onchange="saveCurrentStep()"> Sauce césar (+1DA)</label>
+                <label><input type="checkbox" name="sauce" value="balsamique" onchange="saveCurrentStep()"> Vinaigrette balsamique (+1DA)</label>
+                <label><input type="checkbox" name="sauce" value="miel_moutarde" onchange="saveCurrentStep()"> Sauce miel-moutarde (+1DA)</label>
+                <label><input type="checkbox" name="sauce" value="sesame" onchange="saveCurrentStep()"> Sauce sésame (+1.2DA)</label>
+                <label><input type="checkbox" name="sauce" value="ranch" onchange="saveCurrentStep()"> Sauce ranch (+1DA)</label>
             </div>
         </div>
         <div class="nav-footer">
