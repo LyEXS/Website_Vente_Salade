@@ -175,32 +175,124 @@ button:disabled {
 }
 
 /* Nouveau design pour le prix dynamique */
+/* Design de ticket de restaurant - Position bas droite */
 #livePriceContainer {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #CB593F;
-    color: #FEF3D6;
-    padding: 15px 25px;
-    border-radius: 50px;
+    bottom: 30px;
+    right: 30px;
+    background: #FEF3D6;
+    color: #002C26;
+    padding: 0;
+    width: 280px;
+    border-radius: 8px;
     font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(0, 44, 38, 0.3);
+    z-index: 1000;
+    overflow: hidden;
+    border: 2px solid #CB593F;
     transition: all 0.3s;
+    font-family: 'Chau Philomene', sans-serif;
+    transform: none; /* Retire le translateX */
 }
 
-#livePriceContainer:hover {
-    transform: scale(1.05);
-    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25);
+#livePriceHeader {
+    background: #CB593F;
+    color: #FEF3D6;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px dashed #FEF3D6;
+}
+
+#livePriceContent {
+    padding: 15px;
+    text-align: center;
+    position: relative;
+}
+
+#livePriceLabel {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: #9FC977;
+    font-weight: bold;
 }
 
 #livePrice {
-    font-size: 1.3em;
+    font-size: 2em;
     font-weight: bold;
+    color: #CB593F;
+    margin: 8px 0;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+#livePriceCurrency {
+    font-size: 0.7em;
+    vertical-align: super;
+    margin-right: 3px;
+}
+
+#livePriceFooter {
+    background: #CEDAAA;
+    padding: 6px;
+    text-align: center;
+    font-size: 0.7em;
+    color: #002C26;
+    border-top: 2px dashed #9FC977;
+}
+
+/* Effet de perforation sur les côtés (style ticket) */
+#livePriceContainer::before,
+#livePriceContainer::after {
+    content: "";
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background: #FEF3D6;
+    border-radius: 50%;
+    border: 2px solid #CB593F;
+    z-index: 2;
+}
+
+#livePriceContainer::before {
+    top: -6px;
+    left: -6px;
+}
+
+#livePriceContainer::after {
+    top: -6px;
+    right: -6px;
+}
+
+/* Animation pulsante pour attirer l'attention */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#livePriceContainer.price-update {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Version compacte pour mobiles */
+@media (max-width: 600px) {
+    #livePriceContainer {
+        right: 15px;
+        bottom: 15px;
+        width: 220px;
+    }
+    
+    #livePriceHeader {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+    
+    #livePrice {
+        font-size: 1.7em;
+    }
 }
 
 /* Panier */
