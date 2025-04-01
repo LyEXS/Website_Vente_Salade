@@ -3,12 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Chau Philomene', sans-serif;
 }
 
 body {
-    background-color: #f5fff5;
-    color: #333;
+    background-color: #FEF3D6;
+    color: #002C26;
     position: relative;
     min-height: 100vh;
     padding-bottom: 100px;
@@ -31,7 +31,7 @@ body {
     background: white;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 100, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 44, 38, 0.1);
     width: 100%;
     max-width: 500px;
     text-align: center;
@@ -40,17 +40,22 @@ body {
 }
 
 h1, h2 {
-    color: #2e8b57;
+    color: #002C26;
     margin-bottom: 20px;
+    font-family: 'Chau Philomene', sans-serif;
+}
+
+.arabic-text {
+    font-family: 'Mango', sans-serif;
 }
 
 /* Style pour les champs obligatoires */
 .required {
-    color: #e74c3c;
+    color: #CB593F;
 }
 
 .required-options {
-    border-left: 3px solid #2e8b57;
+    border-left: 3px solid #9FC977;
     padding-left: 10px;
 }
 
@@ -70,7 +75,7 @@ h1, h2 {
 
 .sub-options {
     margin-left: 20px;
-    border-left: 2px solid #eee;
+    border-left: 2px solid #CEDAAA;
     padding-left: 10px;
 }
 
@@ -94,7 +99,7 @@ label {
 }
 
 label:hover {
-    background: #f0fff0;
+    background: #CEDAAA;
 }
 
 input[type="radio"], input[type="checkbox"] {
@@ -102,8 +107,8 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 button {
-    background: #2e8b57;
-    color: white;
+    background: #CB593F;
+    color: #FEF3D6;
     border: none;
     padding: 12px 25px;
     border-radius: 50px;
@@ -114,18 +119,18 @@ button {
 }
 
 button:hover {
-    background: #3cb371;
+    background: #002C26;
     transform: translateY(-2px);
 }
 
 button.secondary {
     background: white;
-    color: #2e8b57;
-    border: 1px solid #2e8b57;
+    color: #CB593F;
+    border: 1px solid #CB593F;
 }
 
 button:disabled {
-    background: #cccccc;
+    background: #CEDAAA;
     cursor: not-allowed;
     transform: none;
 }
@@ -174,8 +179,8 @@ button:disabled {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #2e8b57;
-    color: white;
+    background: #CB593F;
+    color: #FEF3D6;
     padding: 15px 25px;
     border-radius: 50px;
     font-weight: bold;
@@ -200,31 +205,31 @@ button:disabled {
 
 /* Panier */
 #cart {
-    max-height: 400px; /* Hauteur maximale avant défilement */
-    overflow-y: auto;  /* Défilement vertical si nécessaire */
-    padding-right: 10px; /* Espace pour éviter que le contenu touche la barre de défilement */
-    border: 1px solid #ddd; /* Optionnel : bordure pour mieux visualiser */
-    border-radius: 8px; /* Optionnel : coins arrondis */
-    margin-bottom: 15px; /* Espace sous le panier */
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+    border: 1px solid #CEDAAA;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
-/* Style personnalisé pour la barre de défilement (optionnel) */
+/* Style personnalisé pour la barre de défilement */
 #cart::-webkit-scrollbar {
     width: 8px;
 }
 
 #cart::-webkit-scrollbar-thumb {
-    background-color: #2e8b57; /* Couleur de la poignée de défilement */
+    background-color: #9FC977;
     border-radius: 4px;
 }
 
 #cart::-webkit-scrollbar-track {
-    background-color: #f1f1f1; /* Couleur de la piste de défilement */
+    background-color: #FEF3D6;
 }
 
 .cart-item {
     padding: 10px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #CEDAAA;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -259,7 +264,7 @@ button:disabled {
     font-size: 1.5em;
     margin: 0;
     padding: 10px 15px;
-    color: #2e8b57;
+    color: #CB593F;
     transition: all 0.3s;
     background: none;
     border: none;
@@ -267,7 +272,7 @@ button:disabled {
 
 .back-arrow:hover {
     transform: translateX(-3px);
-    color: #3cb371;
+    color: #002C26;
 }
 
 /* Masquer la flèche sur l'accueil */
@@ -292,33 +297,33 @@ button:disabled {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #ccc;
+    background: #CEDAAA;
     cursor: pointer;
     transition: all 0.3s;
 }
 
 .step-indicator.active {
-    background: #2e8b57;
+    background: #9FC977;
     transform: scale(1.2);
 }
 
 /* Bouton d'ajout de bol */
 .add-bowl {
-    background: #ff7f50;
+    background: #CB593F;
     margin-top: 15px;
 }
 
 .add-bowl:hover {
-    background: #ff6347;
+    background: #002C26;
 }
 
 /* Style pour les titres de catégorie */
 .options h3 {
     margin-top: 20px;
-    color: #2e8b57;
+    color: #002C26;
     font-size: 1.1em;
     padding-bottom: 5px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #CEDAAA;
 }
 
 /* Responsive */
@@ -334,8 +339,8 @@ button:disabled {
 }
 
 .cart-item-controls button.secondary {
-    background: #e74c3c;
-    color: white;
+    background: #CB593F;
+    color: #FEF3D6;
     border: none;
     width: 30px;
     height: 30px;
@@ -346,6 +351,6 @@ button:disabled {
 }
 
 .cart-item-controls button.secondary:hover {
-    background: #c0392b;
+    background: #002C26;
     transform: scale(1.1);
 }
