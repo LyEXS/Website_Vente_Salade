@@ -1,0 +1,434 @@
+/* Reset harmonisé */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Chau Philomene', sans-serif;
+}
+
+body {
+    background-color: #FEF3D6;
+    color: #002C26;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+/* Navbar harmonisée */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 44, 38, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: #CB593F;
+    font-weight: bold;
+    font-family: 'Chau Philomene', sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #002C26;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #CB593F;
+    transform: translateY(-2px);
+}
+
+/* Section Hero harmonisée */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 44, 38, 0.5), rgba(0, 44, 38, 0.5)), 
+                url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FEF3D6;
+    padding-top: 80px;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-family: 'Chau Philomene', sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn-commander {
+    background: #CB593F;
+    color: #FEF3D6;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2rem;
+    transition: all 0.3s;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-commander:hover {
+    background: #002C26;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Bienfaits harmonisée */
+.benefits {
+    padding: 5rem 5%;
+    background: #FEF3D6;
+}
+
+.section-title {
+    color: #002C26;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.benefit-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 44, 38, 0.1);
+    transition: transform 0.3s;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+}
+
+.benefit-card i {
+    font-size: 2.5rem;
+    color: #CB593F;
+    margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+    color: #002C26;
+    margin-bottom: 1rem;
+}
+
+/* Section Contact harmonisée */
+.contact {
+    padding: 5rem 2rem;
+    background-color: white;
+}
+
+.contact .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.contact-content {
+    flex: 1 1 40rem;
+}
+
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 44, 38, 0.1);
+}
+
+.contact-form h2 {
+    color: #CB593F;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #CEDAAA;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: #FEF3D6;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #CB593F;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(203, 89, 63, 0.2);
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    background: #CB593F;
+    color: #FEF3D6;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.contact-form button:hover {
+    background: #002C26;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info {
+    flex: 1 1 40rem;
+    padding: 2rem;
+}
+
+.info-card {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 44, 38, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: #CB593F;
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    color: #002C26;
+    margin-bottom: 0.5rem;
+}
+
+/* Modal harmonisée */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 44, 38, 0.8);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: white;
+    margin: 2% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 95%;
+    max-width: 500px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    float: right;
+    font-size: 28px;
+    color: #CB593F;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #002C26;
+}
+
+/* Responsive harmonisé */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .contact .container {
+        flex-direction: column;
+    }
+    
+    .contact-form,
+    .contact-info {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        padding: 20px 15px;
+    }
+}
+
+/* Ajout des styles existants (à conserver) */
+.slide {
+    display: none;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.slide.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 44, 38, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.salades-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.salade-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.salade-card:hover {
+    transform: translateY(-5px);
+}
+
+.salade-image {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+.salade-name {
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #002C26;
+}
+
+.salade-details {
+    display: none; /* Caché par défaut */
+}
+
+/* Styles spécifiques pour la modal des salades */
+#salade-modal .modal-content {
+    padding: 0;
+    overflow: hidden;
+}
+
+#salade-modal .modal-image-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+#salade-modal .modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#salade-modal .modal-text-content {
+    padding: 20px;
+}
+
+#salade-modal .close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    z-index: 10;
+}
+
+#salade-modal .btn-close {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background: #CB593F;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#salade-modal .btn-close:hover {
+    background: #002C26;
+}

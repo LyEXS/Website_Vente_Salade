@@ -130,66 +130,38 @@ function calculateTotalPrice() {
     
     bowls.forEach(bowl => {
         // Taille
-        if (bowl.size === 'S') total += 5;
-        else if (bowl.size === 'L') total += 7;
-        else if (bowl.size === 'XL') total += 9;
-        else if (bowl.size === 'XXL') total += 12;
+        if (bowl.size) {
+            total += getPrice('size', bowl.size);
+        }
 
         // Base
         bowl.base.forEach(base => {
-            if (base === 'riz_blanc') total += 1;
-            else if (base === 'riz_complet' || base === 'riz_basmati') total += 1.5;
-            else if (base === 'riz_sauvage') total += 2;
-            else if (base === 'quinoa') total += 2;
-            else if (base === 'boulgour' || base === 'lentilles' || base === 'couscous') total += 1.5;
-            else if(base==='pates_penne'||base==='pates_fusilli'||base==='pates_farfalle'||base==='orecchiette') total +=2;
-            // Les salades vertes n'ajoutent pas de prix supplémentaire
+            total += getPrice('base', base);
         });
 
         // Protéines
         bowl.protein.forEach(prot => {
-            if (prot === 'poulet_grille') total += 3;
-            else if (prot === 'poulet_crispy') total += 3.5;
-            else if (prot === 'boeuf') total += 4;
-            else if (prot === 'saumon') total += 5;
-            else if (prot === 'crevettes') total += 4.5;
-            else if (prot === 'tofu') total += 2.5;
-            else if (prot === 'falafel') total += 3;
-            else if (prot === 'oeufs') total += 2;
+            total += getPrice('protein', prot);
         });
 
         // Légumes & garnitures
         bowl.vegetables.forEach(veg => {
-            if (veg === 'avocat') total += 1.5;
-            else if (veg === 'concombre' || veg === 'tomates' || veg === 'poivrons' || veg === 'radis' || 
-                     veg === 'carottes' || veg === 'cornichons' || veg === 'mais' || veg === 'oignons') total += 0.5;
-            else if (veg === 'champignons' || veg === 'betterave' || veg === 'olives_noires' || 
-                     veg === 'olives_vertes' || veg === 'pommes' || veg === 'raisins') total += 1;
-            else if (veg === 'edamame') total += 1;
-            else if (veg === 'noix' || veg === 'fromage_rape') total += 1.2;
-            else if (veg === 'feta' || veg === 'mozzarella' || veg === 'parmesan') total += 1.5;
+            total += getPrice('vegetables', veg);
         });
 
         // Sauces
         bowl.sauce.forEach(sauce => {
-            if (sauce === 'mayonnaise' || sauce === 'ketchup' || sauce === 'moutarde') total += 0.5;
-            else if (sauce === 'algerienne' || sauce === 'barbecue') total += 1;
-            else if (sauce === 'yaourt_citron' || sauce === 'balsamique') total += 1;
-            else if (sauce === 'pesto' || sauce === 'cesar' || sauce === 'miel_moutarde' || sauce === 'ranch') total += 1;
-            else if (sauce === 'fromagere' || sauce === 'sesame') total += 1.2;
+            total += getPrice('sauce', sauce);
         });
 
         // Suppléments
         bowl.extras.forEach(extra => {
-            if (extra.startsWith('graines_') || extra === 'lin' || extra === 'pavot') total += 1;
-            else if (extra.endsWith('_sechees') || extra.endsWith('_effilees') || extra.endsWith('_concasees') || extra === 'noix_cajou') total += 1.2;
+            total += getPrice('extras', extra);
         });
 
         // Boissons
         bowl.drink.forEach(drink => {
-            if (drink.startsWith('smoothie')) total += 3;
-            else if (drink.startsWith('jus')) total += 2.5;
-            else if (drink.startsWith('eau') || drink.startsWith('soda') || drink.startsWith('the_glace')) total += 1.5;
+            total += getPrice('drink', drink);
         });
     });
 
@@ -199,7 +171,7 @@ function calculateTotalPrice() {
 // Affichage dynamique du prix
 function updateLivePrice() {
     const total = calculateTotalPrice();
-    document.getElementById('livePrice').textContent = total + 'DA';
+    document.getElementById('livePrice').textContent = total + ' DZD';
 }
 
 // Mise à jour du panier
@@ -266,7 +238,7 @@ function updateCart() {
         }
     });
     
-    document.getElementById('cartTotal').textContent = calculateTotalPrice() + 'DA';
+    document.getElementById('cartTotal').textContent = calculateTotalPrice() + ' DZD';
 }
 
 function addCartItem(category, name, price, bowlIndex, value) {
@@ -282,7 +254,7 @@ function addCartItem(category, name, price, bowlIndex, value) {
             <strong>${category}:</strong> ${name}
         </div>
         <div class="cart-item-controls">
-            <span>${price}DA</span>
+            <span>${price} DZD</span>
             <button class="secondary" onclick="removeCartItem(${bowlIndex}, '${category}', '${value}')">-</button>
         </div>
     `;
@@ -481,98 +453,98 @@ function getPrice(type, value) {
             'XXL': 12
         },
         base: {
-            'salade_laitue': 0,
-            'salade_roquette': 0,
-            'salade_epinards': 0,
-            'salade_mesclun': 0,
-            'riz_blanc': 1,
-            'riz_complet': 1.5,
-            'riz_basmati': 1.5,
-            'riz_sauvage': 2,
-            'pates_penne': 0,
-            'pates_fusilli': 0,
-            'pates_farfalle': 0,
-            'pates_orecchiette': 0,
-            'quinoa': 2,
-            'boulgour': 1.5,
-            'lentilles': 1.5,
-            'couscous': 1.5
+            'salade_laitue': 18,
+            'salade_roquette': 18,
+            'salade_epinards': 18,
+            'salade_mesclun': 18,
+            'riz_blanc': 30,
+            'riz_complet': 30,
+            'riz_basmati': 30,
+            'riz_sauvage': 30,
+            'pates_penne': 22,
+            'pates_fusilli': 22,
+            'pates_farfalle': 22,
+            'pates_orecchiette': 22,
+            'quinoa': 120,
+            'boulgour': 45,
+            'lentilles': 37,
+            'couscous': 52
         },
         protein: {
-            'poulet_grille': 3,
-            'poulet_crispy': 3.5,
-            'boeuf': 4,
-            'saumon': 5,
-            'crevettes': 4.5,
-            'tofu': 2.5,
-            'falafel': 3,
-            'oeufs': 2
+            'poulet_grille': 90,
+            'poulet_crispy': 90,
+            'boeuf': 210,
+            'saumon': 300,
+            'crevettes': 300,
+            'tofu': 180,
+            'falafel': 100,
+            'oeufs': 15
         },
         vegetables: {
-            'avocat': 1.5,
-            'concombre': 0.5,
-            'tomates': 0.5,
-            'poivrons': 0.5,
-            'champignons': 1,
-            'betterave': 1,
-            'radis': 0.5,
-            'carottes': 0.5,
-            'olives_noires': 1,
-            'olives_vertes': 1,
-            'cornichons': 0.5,
-            'mais': 0.5,
-            'oignons': 0.5,
-            'edamame': 1,
-            'pommes': 1,
-            'raisins': 1,
-            'noix': 1.2,
-            'fromage_rape': 1.2,
-            'feta': 1.5,
-            'mozzarella': 1.5,
-            'parmesan': 1.5
+            'avocat': 120,
+            'concombre': 8,
+            'tomates': 30,
+            'poivrons': 8,
+            'champignons': 50,
+            'betterave': 8,
+            'radis': 25,
+            'carottes': 6,
+            'olives_noires': 15,
+            'olives_vertes': 15,
+            'cornichons': 20,
+            'mais': 20,
+            'oignons': 5,
+            'edamame': 20,
+            'pommes': 40,
+            'raisins': 40,
+            'noix': 75,
+            'fromage_rape': 75,
+            'feta': 100,
+            'mozzarella': 110,
+            'parmesan': 125
         },
         sauce: {
-            'mayonnaise': 0.5,
-            'ketchup': 0.5,
-            'moutarde': 0.5,
-            'algerienne': 1,
-            'barbecue': 1,
-            'pesto': 1,
-            'fromagere': 1.2,
-            'yaourt_citron': 1,
-            'cesar': 1,
-            'balsamique': 1,
-            'miel_moutarde': 1,
-            'sesame': 1.2,
-            'ranch': 1
+            'mayonnaise': 15,
+            'ketchup': 15,
+            'moutarde': 15,
+            'algerienne': 20,
+            'barbecue': 20,
+            'pesto': 25,
+            'fromagere': 25,
+            'yaourt_citron': 20,
+            'cesar': 25,
+            'balsamique': 20,
+            'miel_moutarde': 25,
+            'sesame': 25,
+            'ranch': 25
         },
         extras: {
-            'graines_sesame': 1,
-            'graines_chia': 1,
-            'graines_tournesol': 1,
-            'graines_courge': 1,
-            'lin': 1,
-            'pavot': 1,
-            'noix_concasees': 1.2,
-            'amandes_effilees': 1.2,
-            'noix_cajou': 1.2,
-            'cranberries_sechees': 1.2
+            'graines_sesame': 5,
+            'graines_chia': 5,
+            'graines_tournesol': 5,
+            'graines_courge': 5,
+            'lin': 5,
+            'pavot': 5,
+            'noix_concasees': 5,
+            'amandes_effilees': 5,
+            'noix_cajou': 5,
+            'cranberries_sechees': 5
         },
         drink: {
-            'smoothie_banane': 3,
-            'smoothie_fraise': 3,
-            'smoothie_mangue': 3,
-            'smoothie_fruits_rouges': 3,
-            'smoothie_ananas_coco': 3,
-            'smoothie_exotique': 3,
-            'jus_orange': 2.5,
-            'jus_citronnade': 2.5,
-            'jus_pomme_gingembre': 2.5,
-            'jus_carotte_orange': 2.5,
-            'eau_plate': 1.5,
-            'eau_petillante': 1.5,
-            'soda': 1.5,
-            'the_glace': 1.5
+            'smoothie_banane': 250,
+            'smoothie_fraise': 250,
+            'smoothie_mangue': 300,
+            'smoothie_fruits_rouges': 300,
+            'smoothie_ananas_coco': 350,
+            'smoothie_exotique': 350,
+            'jus_orange': 200,
+            'jus_citronnade': 200,
+            'jus_pomme_gingembre': 250,
+            'jus_carotte_orange': 250,
+            'eau_plate': 25,
+            'eau_petillante': 30,
+            'soda': 60,
+            'the_glace': 60
         }
     };
     return prices[type][value] || 0;
@@ -580,36 +552,33 @@ function getPrice(type, value) {
 
 // Confirmation de commande
 function confirmOrder() {
-    const orderDetailsEl = document.getElementById('orderDetails');
-    let details = '';
-    
-    bowls.forEach((bowl, index) => {
-        details += `<h3>Bol ${index + 1}</h3>`;
-        
-        if (bowl.size) details += `<p><strong>Taille :</strong> ${getLabel('size', bowl.size)}</p>`;
-        if (bowl.base) details += `<p><strong>Base :</strong> ${getLabel('base', bowl.base)}</p>`;
-        if (bowl.protein) details += `<p><strong>Protéine :</strong> ${getLabel('protein', bowl.protein)}</p>`;
-        
-        if (bowl.vegetables.length > 0) {
-            details += `<p><strong>Garnitures :</strong> ${bowl.vegetables.map(v => getLabel('vegetables', v)).join(', ')}</p>`;
-        }
-        
-        if (bowl.sauce) details += `<p><strong>Sauce :</strong> ${getLabel('sauce', bowl.sauce)}</p>`;
-        
-        if (bowl.extras.length > 0) {
-            details += `<p><strong>Suppléments :</strong> ${bowl.extras.map(e => getLabel('extras', e)).join(', ')}</p>`;
-        }
-        
-        if (bowl.drink.length > 0) {
-            details += `<p><strong>Boisson :</strong> ${bowl.drink.map(d => getLabel('drink', d)).join(', ')}</p>`;
-        }
-    });
-    
-    details += `<p><strong>Total :</strong> ${calculateTotalPrice()}</p>`;
-    
-    orderDetailsEl.innerHTML = details;
-    showSlide(slides.length - 1); // Dernier slide = confirmation
+    const total = calculateTotalPrice();
+    // Sauvegarder le total dans le localStorage
+    localStorage.setItem('orderTotal', total);
+    // OU passer dans l'URL
+    window.location.href = `../payment/index.html?total=${total}`;
 }
+
+function showCart() {
+    saveCurrentStep();
+    updateCart();
+    
+    // Ajoutez un bouton de paiement dans le panier
+    const cartEl = document.getElementById('cart');
+    if (cartEl) {
+        const total = calculateTotalPrice();
+        const paymentBtn = document.createElement('button');
+        paymentBtn.textContent = `Payer ${total} DA`;
+        paymentBtn.className = 'payment-btn';
+        paymentBtn.onclick = function() {
+            window.location.href = `paiement.html?total=${total}`;
+        };
+        cartEl.appendChild(paymentBtn);
+    }
+    
+    showSlide(slides.length - 3); // Affiche le panier
+}
+
 
 // Réinitialisation
 function resetOrder() {
@@ -703,7 +672,7 @@ function updateTicket() {
     });
     
     // Mettre à jour le total
-    ticketTotalEl.textContent = calculateTotalPrice() + ' DA';
+    ticketTotalEl.textContent = calculateTotalPrice() + '  DZD';
 }
 
 function addTicketItem(name, price) {
@@ -712,7 +681,7 @@ function addTicketItem(name, price) {
     itemEl.className = 'ticket-item';
     itemEl.innerHTML = `
         <span>${name}</span>
-        <span>${price} DA</span>
+        <span>${price}  DZD</span>
     `;
     ticketItemsEl.appendChild(itemEl);
 }

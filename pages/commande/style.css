@@ -413,3 +413,46 @@ button:disabled {
 .ticket-item {
     animation: fadeIn 0.3s ease-out;
 }
+
+/* Styles pour les icônes */
+.fas, .far {
+    margin-right: 8px;
+    color: #2e8b57;
+    width: 20px;
+    text-align: center;
+}
+
+.ticket-item i {
+    margin-right: 5px;
+}
+
+.options label i {
+    margin-right: 5px;
+}
+
+.item-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+
+.payment-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.payment-btn:hover {
+    background-color: #27ae60;
+}
