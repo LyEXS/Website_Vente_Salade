@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshSalades - Votre boutique de salades healthy</title>
+   
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">FreshSalades</div>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#benefits">Bienfaits</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Section Accueil -->
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h1>Salades fraîches sur mesure</h1>
+            <p>Composez votre salade idéale avec des ingrédients 100% bio</p>
+            <a href="../commande/index.html" class="btn-commander">Commander maintenant</a>
+           
+        </div>
+    </section>
+
+    <section>
+        <div class="salades-container">
+            <!-- Salade Fraîcheur -->
+            <div class="salade-card" onclick="showDetails('fraicheur')">
+                <div class="salade-image" style="background-image: url('../../images/salade_fraicheur.webp')"></div>
+                <div class="salade-name">Salade Fraîcheur</div>
+                <div class="salade-details" id="fraicheur-details">
+                    <p><strong>Base :</strong> Salade verte</p>
+                    <p><strong>Ingrédients :</strong> Concombre, tomates cerises, radis, carottes râpées, maïs</p>
+                    <p><strong>Sauce :</strong> Vinaigrette balsamique</p>
+                    <p><strong>Suppléments :</strong> Graines de tournesol</p>
+                </div>
+            </div>
+        
+            <!-- Salade Protéinée -->
+            <div class="salade-card" onclick="showDetails('proteinee')">
+                <div class="salade-image" style="background-image: url('../../images/salade_protéinée.jpg')"></div>
+                <div class="salade-name">Salade Protéinée</div>
+                <div class="salade-details" id="proteinee-details">
+                    <p><strong>Base :</strong> Quinoa</p>
+                    <p><strong>Ingrédients :</strong> Poulet grillé, edamame, avocat, œufs durs, betteraves</p>
+                    <p><strong>Sauce :</strong> Sauce miel-moutarde</p>
+                    <p><strong>Suppléments :</strong> Noix concassées</p>
+                </div>
+            </div>
+        
+            <!-- Salade Méditerranéenne -->
+            <div class="salade-card" onclick="showDetails('mediterraneenne')">
+                <div class="salade-image" style="background-image: url('../../images/salade_méditérranéene.jpg')"></div>
+                <div class="salade-name">Salade Méditerranéenne</div>
+                <div class="salade-details" id="mediterraneenne-details">
+                    <p><strong>Base :</strong> Couscous perlé</p>
+                    <p><strong>Ingrédients :</strong> Feta, olives noires, poivrons, oignons rouges, tomates cerises</p>
+                    <p><strong>Sauce :</strong> Pesto</p>
+                    <p><strong>Suppléments :</strong> Graines de sésame</p>
+                </div>
+            </div>
+        
+            <!-- Salade Nordique -->
+            <div class="salade-card" onclick="showDetails('nordique')">
+                <div class="salade-image" style="background-image: url('../../images/salade_nordique.jpg')"></div>
+                <div class="salade-name">Salade Nordique</div>
+                <div class="salade-details" id="nordique-details">
+                    <p><strong>Base :</strong> Lentilles</p>
+                    <p><strong>Ingrédients :</strong> Saumon fumé, avocat, concombre, oignons rouges, fromage râpé</p>
+                    <p><strong>Sauce :</strong> Sauce yaourt-citron</p>
+                    <p><strong>Suppléments :</strong> Graines de pavot</p>
+                </div>
+            </div>
+        
+            <!-- Salade César revisitée -->
+            <div class="salade-card" onclick="showDetails('cesar')">
+                <div class="salade-image" style="background-image: url('../../images/salade_cesar.jpg')"></div>
+                <div class="salade-name">Salade César revisitée</div>
+                <div class="salade-details" id="cesar-details">
+                    <p><strong>Base :</strong> Pâtes (farfalle)</p>
+                    <p><strong>Ingrédients :</strong> Poulet crispy, parmesan, croûtons, laitue</p>
+                    <p><strong>Sauce :</strong> Sauce césar</p>
+                    <p><strong>Suppléments :</strong> Graines de lin</p>
+                </div>
+            </div>
+        
+            <!-- Salade Exotique -->
+            <div class="salade-card" onclick="showDetails('exotique')">
+                <div class="salade-image" style="background-image: url('../../images/salade_exotique.jpg')"></div>
+                <div class="salade-name">Salade Exotique</div>
+                <div class="salade-details" id="exotique-details">
+                    <p><strong>Base :</strong> Riz basmati</p>
+                    <p><strong>Ingrédients :</strong> Crevettes, mangue, poivrons, maïs, noix de cajou</p>
+                    <p><strong>Sauce :</strong> Sauce sésame</p>
+                    <p><strong>Suppléments :</strong> Graines de chia</p>
+                </div>
+            </div>
+        
+            <!-- Salade Végétarienne Gourmande -->
+            <div class="salade-card" onclick="showDetails('vegetarienne')">
+                <div class="salade-image" style="background-image: url('../../images/salade_végetaréene.jpeg')"></div>
+                <div class="salade-name">Salade Végétarienne Gourmande</div>
+                <div class="salade-details" id="vegetarienne-details">
+                    <p><strong>Base :</strong> Boulgour</p>
+                    <p><strong>Ingrédients :</strong> Tofu, champignons, edamame, betteraves, noix</p>
+                    <p><strong>Sauce :</strong> Sauce fromagère</p>
+                    <p><strong>Suppléments :</strong> Amandes effilées</p>
+                </div>
+            </div>
+        
+            <!-- Salade Italienne -->
+            <div class="salade-card" onclick="showDetails('italienne')">
+                <div class="salade-image" style="background-image: url('../../images/salade-italienne.jpg')"></div>
+                <div class="salade-name">Salade Italienne</div>
+                <div class="salade-details" id="italienne-details">
+                    <p><strong>Base :</strong> Pâtes (penne)</p>
+                    <p><strong>Ingrédients :</strong> Mozzarella, tomates cerises, olives vertes, basilic frais</p>
+                    <p><strong>Sauce :</strong> Pesto</p>
+                    <p><strong>Suppléments :</strong> Graines de tournesol</p>
+                </div>
+            </div>
+        
+            <!-- Salade Détox -->
+            <div class="salade-card" onclick="showDetails('detox')">
+                <div class="salade-image" style="background-image: url('../../images/salade_detox.jpg')"></div>
+                <div class="salade-name">Salade Détox</div>
+                <div class="salade-details" id="detox-details">
+                    <p><strong>Base :</strong> Salade verte</p>
+                    <p><strong>Ingrédients :</strong> Pommes, raisins secs, radis, betteraves, noix</p>
+                    <p><strong>Sauce :</strong> Vinaigrette balsamique</p>
+                    <p><strong>Suppléments :</strong> Graines de courge</p>
+                </div>
+            </div>
+        
+            <!-- Salade Énergisante -->
+            <div class="salade-card" onclick="showDetails('energisante')">
+                <div class="salade-image" style="background-image: url('../../images/salade_énergisante.jpeg')"></div>
+                <div class="salade-name">Salade Énergisante</div>
+                <div class="salade-details" id="energisante-details">
+                    <p><strong>Base :</strong> Quinoa</p>
+                    <p><strong>Ingrédients :</strong> Bœuf mariné, avocat, oignons rouges, champignons, parmesan</p>
+                    <p><strong>Sauce :</strong> Sauce barbecue</p>
+                    <p><strong>Suppléments :</strong> Cranberries séchées</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal pour afficher les détails -->
+        <div id="salade-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeSaladeModal()">&times;</span>
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Section Bienfaits -->
+    <section class="benefits" id="benefits">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Les bienfaits de nos salades</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <i class="fas fa-heart"></i>
+                <h3>Santé cardiaque</h3>
+                <p>Riches en antioxydants et acides gras essentiels</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-leaf"></i>
+                <h3>100% Bio</h3>
+                <p>Des légumes cultivés sans pesticides ni OGM</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-clock"></i>
+                <h3>Préparation minute</h3>
+                <p>Livraison en moins de 24h après commande</p>
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Contactez-nous</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Votre message..." required></textarea>
+                    </div>
+                    <button type="submit">Envoyer le message</button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Notre adresse</h3>
+                    <p>123 Rue des Salades, Paris</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Téléphone</h3>
+                    <p>+33 1 23 45 67 89</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>contact@freshsalades.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeOrderModal()">&times;</span>
+          <div class="modal-steps">
+            <!-- Contenu des étapes de commande ici -->
+          </div>
+        </div>
+      </div>
+      <script src="script.js" defer></script>
+</body>
+</html>
