@@ -121,6 +121,7 @@ function saveCurrentStep() {
         });
     }
     updateLivePrice();
+    updateTicket();
 }
 
 // Calcul du prix total
@@ -326,6 +327,7 @@ function removeCartItem(bowlIndex, category, value) {
     }
     
     updateCart();
+    updateTicket();
     updateLivePrice();
 }
 
@@ -355,11 +357,13 @@ function addAnotherBowl() {
     document.querySelectorAll('input').forEach(input => {
         input.checked = false;
     });
+    updateTicket();
     
     // Retourner à la première étape
     showSlide(1);
     enableNext(1);
     enableNext(2);
+
 }
 
 function getLabel(type, value) {
@@ -630,6 +634,7 @@ function resetOrder() {
     // Réinitialiser l'affichage
     showSlide(0);
     updateLivePrice();
+    updateTicket();
     
     // Réactiver les boutons Suivant
     enableNext(1);
@@ -644,6 +649,74 @@ document.querySelectorAll('input').forEach(input => {
     });
 });
 
+function updateTicket() {
+    const ticketItemsEl = document.getElementById('ticketItems');
+    const ticketTotalEl = document.getElementById('ticketTotal');
+    
+    // Vider le ticket
+    ticketItemsEl.innerHTML = '';
+    
+    // Parcourir tous les bols
+    bowls.forEach((bowl, bowlIndex) => {
+        if (isBowlEmpty(bowl)) return;
+        
+        // Ajouter un en-tête pour le bol
+        const bowlHeader = document.createElement('div');
+        bowlHeader.className = 'ticket-item';
+        bowlHeader.innerHTML = `<strong>Bol ${bowlIndex + 1}</strong>`;
+        ticketItemsEl.appendChild(bowlHeader);
+        
+        // Ajouter la taille
+        if (bowl.size) {
+            addTicketItem(`Taille: ${getLabel('size', bowl.size)}`, getPrice('size', bowl.size));
+        }
+        
+        // Ajouter les bases
+        bowl.base.forEach(base => {
+            addTicketItem(getLabel('base', base), getPrice('base', base));
+        });
+        
+        // Ajouter les protéines
+        bowl.protein.forEach(prot => {
+            addTicketItem(getLabel('protein', prot), getPrice('protein', prot));
+        });
+        
+        // Ajouter les légumes
+        bowl.vegetables.forEach(veg => {
+            addTicketItem(getLabel('vegetables', veg), getPrice('vegetables', veg));
+        });
+        
+        // Ajouter les sauces
+        bowl.sauce.forEach(s => {
+            addTicketItem(getLabel('sauce', s), getPrice('sauce', s));
+        });
+        
+        // Ajouter les extras
+        bowl.extras.forEach(extra => {
+            addTicketItem(getLabel('extras', extra), getPrice('extras', extra));
+        });
+        
+        // Ajouter les boissons
+        bowl.drink.forEach(d => {
+            addTicketItem(getLabel('drink', d), getPrice('drink', d));
+        });
+    });
+    
+    // Mettre à jour le total
+    ticketTotalEl.textContent = calculateTotalPrice() + ' DA';
+}
+
+function addTicketItem(name, price) {
+    const ticketItemsEl = document.getElementById('ticketItems');
+    const itemEl = document.createElement('div');
+    itemEl.className = 'ticket-item';
+    itemEl.innerHTML = `
+        <span>${name}</span>
+        <span>${price} DA</span>
+    `;
+    ticketItemsEl.appendChild(itemEl);
+}
+
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
     // Désélectionner explicitement tous les inputs
@@ -655,4 +728,5 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(0);
     document.getElementById('nextBtn1').disabled = true;
     document.getElementById('nextBtn2').disabled = true;
+    updateTicket();
 });

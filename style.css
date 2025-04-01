@@ -354,3 +354,62 @@ button:disabled {
     background: #002C26;
     transform: scale(1.1);
 }
+
+
+
+
+/* Ajoutez ceci dans votre fichier CSS */
+.ticket-container {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    font-family: 'Arial', sans-serif;
+}
+
+.ticket-header {
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.ticket-header h3 {
+    margin: 0;
+    color: #2e8b57;
+}
+
+.ticket-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.ticket-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.ticket-total {
+    font-weight: bold;
+    border-top: 1px dashed #ddd;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.ticket-item {
+    animation: fadeIn 0.3s ease-out;
+}
