@@ -27,10 +27,10 @@
         <div class="container">
             <h2>1. Choisissez votre bol <span class="required">*</span></h2>
             <div class="options required-options">
-                <label><input type="radio" name="size" value="S" required onchange="enableNext(1)"> Small (S) - 5€</label>
-                <label><input type="radio" name="size" value="L" onchange="enableNext(1)"> Large (L) - 7€</label>
-                <label><input type="radio" name="size" value="XL" onchange="enableNext(1)"> XL - 9€</label>
-                <label><input type="radio" name="size" value="XXL" onchange="enableNext(1)"> XXL - 12€</label>
+                <label><input type="radio" name="size" value="S" required onchange="enableNext(1)"> Small (S) - 5DA</label>
+                <label><input type="radio" name="size" value="L" onchange="enableNext(1)"> Large (L) - 7DA</label>
+                <label><input type="radio" name="size" value="XL" onchange="enableNext(1)"> XL - 9DA</label>
+                <label><input type="radio" name="size" value="XXL" onchange="enableNext(1)"> XXL - 12DA</label>
             </div>
         </div>
         <div class="nav-footer">
@@ -61,10 +61,10 @@
                 <label><input type="radio" name="base" value="salade_mesclun" onchange="enableNext(2)"> Mesclun</label>
                 
                 <h3>Riz</h3>
-                <label><input type="radio" name="base" value="riz_blanc" onchange="enableNext(2)"> Blanc (+1€)</label>
-                <label><input type="radio" name="base" value="riz_complet" onchange="enableNext(2)"> Complet (+1.5€)</label>
-                <label><input type="radio" name="base" value="riz_basmati" onchange="enableNext(2)"> Basmati (+1.5€)</label>
-                <label><input type="radio" name="base" value="riz_sauvage" onchange="enableNext(2)"> Sauvage (+2€)</label>
+                <label><input type="radio" name="base" value="riz_blanc" onchange="enableNext(2)"> Blanc (+1DA)</label>
+                <label><input type="radio" name="base" value="riz_complet" onchange="enableNext(2)"> Complet (+1.5DA)</label>
+                <label><input type="radio" name="base" value="riz_basmati" onchange="enableNext(2)"> Basmati (+1.5DA)</label>
+                <label><input type="radio" name="base" value="riz_sauvage" onchange="enableNext(2)"> Sauvage (+2DA)</label>
                 
                 <h3>Pâtes</h3>
                 <label><input type="radio" name="base" value="pates_penne" onchange="enableNext(2)"> Penne</label>
@@ -73,10 +73,10 @@
                 <label><input type="radio" name="base" value="pates_orecchiette" onchange="enableNext(2)"> Orecchiette</label>
                 
                 <h3>Autres bases</h3>
-                <label><input type="radio" name="base" value="quinoa" onchange="enableNext(2)"> Quinoa (+2€)</label>
-                <label><input type="radio" name="base" value="boulgour" onchange="enableNext(2)"> Boulgour (+1.5€)</label>
-                <label><input type="radio" name="base" value="lentilles" onchange="enableNext(2)"> Lentilles (+1.5€)</label>
-                <label><input type="radio" name="base" value="couscous" onchange="enableNext(2)"> Couscous perlé (+1.5€)</label>
+                <label><input type="radio" name="base" value="quinoa" onchange="enableNext(2)"> Quinoa (+2DA)</label>
+                <label><input type="radio" name="base" value="boulgour" onchange="enableNext(2)"> Boulgour (+1.5DA)</label>
+                <label><input type="radio" name="base" value="lentilles" onchange="enableNext(2)"> Lentilles (+1.5DA)</label>
+                <label><input type="radio" name="base" value="couscous" onchange="enableNext(2)"> Couscous perlé (+1.5DA)</label>
             </div>
         </div>
         <div class="nav-footer">
@@ -99,15 +99,15 @@
     <div id="step3" class="slide">
         <div class="container">
             <h2>3. Protéines</h2>
-            <div class="options checkboxes">
-                <label><input type="checkbox" name="protein" value="poulet_grille"> Poulet grillé (+3€)</label>
-                <label><input type="checkbox" name="protein" value="poulet_crispy"> Poulet crispy (+3.5€)</label>
-                <label><input type="checkbox" name="protein" value="boeuf"> Bœuf mariné (+4€)</label>
-                <label><input type="checkbox" name="protein" value="saumon"> Saumon fumé (+5€)</label>
-                <label><input type="checkbox" name="protein" value="crevettes"> Crevettes (+4.5€)</label>
-                <label><input type="checkbox" name="protein" value="tofu"> Tofu (+2.5€)</label>
-                <label><input type="checkbox" name="protein" value="falafel"> Falafel (+3€)</label>
-                <label><input type="checkbox" name="protein" value="oeufs"> Œufs durs (+2€)</label>
+            <div class="options">
+                <label><input type="radio" name="protein" value="poulet_grille" onchange="enableNext(3)"> Poulet grillé (+3DA)</label>
+                <label><input type="radio" name="protein" value="poulet_crispy" onchange="enableNext(3)"> Poulet crispy (+3.5DA)</label>
+                <label><input type="radio" name="protein" value="boeuf" onchange="enableNext(3)"> Bœuf mariné (+4DA)</label>
+                <label><input type="radio" name="protein" value="saumon" onchange="enableNext(3)"> Saumon fumé (+5DA)</label>
+                <label><input type="radio" name="protein" value="crevettes" onchange="enableNext(3)"> Crevettes (+4.5DA)</label>
+                <label><input type="radio" name="protein" value="tofu" onchange="enableNext(3)"> Tofu (+2.5DA)</label>
+                <label><input type="radio" name="protein" value="falafel" onchange="enableNext(3)"> Falafel (+3DA)</label>
+                <label><input type="radio" name="protein" value="oeufs" onchange="enableNext(3)"> Œufs durs (+2DA)</label>
             </div>
         </div>
         <div class="nav-footer">
@@ -132,29 +132,29 @@
             <h2>4. Légumes & garnitures (max 5)</h2>
             <div class="options checkboxes">
                 <h3>Légumes</h3>
-                <label><input type="checkbox" name="vegetables" value="avocat"> Avocat (+1.5€)</label>
-                <label><input type="checkbox" name="vegetables" value="concombre"> Concombre (+0.5€)</label>
-                <label><input type="checkbox" name="vegetables" value="tomates"> Tomates cerises (+0.5€)</label>
-                <label><input type="checkbox" name="vegetables" value="poivrons"> Poivrons (+0.5€)</label>
-                <label><input type="checkbox" name="vegetables" value="champignons"> Champignons (+0.8€)</label>
-                <label><input type="checkbox" name="vegetables" value="betterave"> Betterave (+0.8€)</label>
-                <label><input type="checkbox" name="vegetables" value="radis"> Radis (+0.5€)</label>
-                <label><input type="checkbox" name="vegetables" value="carottes"> Carottes râpées (+0.5€)</label>
-                <label><input type="checkbox" name="vegetables" value="olives_noires"> Olives noires (+0.8€)</label>
-                <label><input type="checkbox" name="vegetables" value="olives_vertes"> Olives vertes (+0.8€)</label>
-                <label><input type="checkbox" name="vegetables" value="cornichons"> Cornichons (+0.5€)</label>
-                <label><input type="checkbox" name="vegetables" value="mais"> Maïs (+0.5€)</label>
-                <label><input type="checkbox" name="vegetables" value="oignons"> Oignons rouges (+0.5€)</label>
-                <label><input type="checkbox" name="vegetables" value="edamame"> Edamame (+1€)</label>
+                <label><input type="checkbox" name="vegetables" value="avocat"> Avocat (+1.5DA)</label>
+                <label><input type="checkbox" name="vegetables" value="concombre"> Concombre (+0.5DA)</label>
+                <label><input type="checkbox" name="vegetables" value="tomates"> Tomates cerises (+0.5DA)</label>
+                <label><input type="checkbox" name="vegetables" value="poivrons"> Poivrons (+0.5DA)</label>
+                <label><input type="checkbox" name="vegetables" value="champignons"> Champignons (+1DA)</label>
+                <label><input type="checkbox" name="vegetables" value="betterave"> Betterave (+1DA)</label>
+                <label><input type="checkbox" name="vegetables" value="radis"> Radis (+0.5DA)</label>
+                <label><input type="checkbox" name="vegetables" value="carottes"> Carottes râpées (+0.5DA)</label>
+                <label><input type="checkbox" name="vegetables" value="olives_noires"> Olives noires (+1DA)</label>
+                <label><input type="checkbox" name="vegetables" value="olives_vertes"> Olives vertes (+1DA)</label>
+                <label><input type="checkbox" name="vegetables" value="cornichons"> Cornichons (+0.5DA)</label>
+                <label><input type="checkbox" name="vegetables" value="mais"> Maïs (+0.5DA)</label>
+                <label><input type="checkbox" name="vegetables" value="oignons"> Oignons rouges (+0.5DA)</label>
+                <label><input type="checkbox" name="vegetables" value="edamame"> Edamame (+1DA)</label>
                 
                 <h3>Fruits & fromages</h3>
-                <label><input type="checkbox" name="vegetables" value="pommes"> Pommes (+0.8€)</label>
-                <label><input type="checkbox" name="vegetables" value="raisins"> Raisins secs (+0.8€)</label>
-                <label><input type="checkbox" name="vegetables" value="noix"> Noix (+1.2€)</label>
-                <label><input type="checkbox" name="vegetables" value="fromage_rape"> Fromage râpé (+1.2€)</label>
-                <label><input type="checkbox" name="vegetables" value="feta"> Feta (+1.5€)</label>
-                <label><input type="checkbox" name="vegetables" value="mozzarella"> Mozzarella (+1.5€)</label>
-                <label><input type="checkbox" name="vegetables" value="parmesan"> Parmesan (+1.5€)</label>
+                <label><input type="checkbox" name="vegetables" value="pommes"> Pommes (+1DA)</label>
+                <label><input type="checkbox" name="vegetables" value="raisins"> Raisins secs (+1DA)</label>
+                <label><input type="checkbox" name="vegetables" value="noix"> Noix (+1.2DA)</label>
+                <label><input type="checkbox" name="vegetables" value="fromage_rape"> Fromage râpé (+1.2DA)</label>
+                <label><input type="checkbox" name="vegetables" value="feta"> Feta (+1.5DA)</label>
+                <label><input type="checkbox" name="vegetables" value="mozzarella"> Mozzarella (+1.5DA)</label>
+                <label><input type="checkbox" name="vegetables" value="parmesan"> Parmesan (+1.5DA)</label>
             </div>
         </div>
         <div class="nav-footer">
@@ -179,21 +179,21 @@
             <h2>5. Choix de la sauce</h2>
             <div class="options">
                 <h3>Sauces classiques</h3>
-                <label><input type="radio" name="sauce" value="mayonnaise"> Mayonnaise (+0.5€)</label>
-                <label><input type="radio" name="sauce" value="ketchup"> Ketchup (+0.5€)</label>
-                <label><input type="radio" name="sauce" value="moutarde"> Moutarde (+0.5€)</label>
-                <label><input type="radio" name="sauce" value="algerienne"> Sauce algérienne (+0.8€)</label>
-                <label><input type="radio" name="sauce" value="barbecue"> Sauce barbecue (+0.8€)</label>
+                <label><input type="radio" name="sauce" value="mayonnaise"> Mayonnaise (+0.5DA)</label>
+                <label><input type="radio" name="sauce" value="ketchup"> Ketchup (+0.5DA)</label>
+                <label><input type="radio" name="sauce" value="moutarde"> Moutarde (+0.5DA)</label>
+                <label><input type="radio" name="sauce" value="algerienne"> Sauce algérienne (+1DA)</label>
+                <label><input type="radio" name="sauce" value="barbecue"> Sauce barbecue (+1DA)</label>
                 
                 <h3>Sauces spéciales</h3>
-                <label><input type="radio" name="sauce" value="pesto"> Pesto (+1€)</label>
-                <label><input type="radio" name="sauce" value="fromagere"> Sauce fromagère (+1.2€)</label>
-                <label><input type="radio" name="sauce" value="yaourt_citron"> Sauce yaourt-citron (+0.8€)</label>
-                <label><input type="radio" name="sauce" value="cesar"> Sauce césar (+1€)</label>
-                <label><input type="radio" name="sauce" value="balsamique"> Vinaigrette balsamique (+0.8€)</label>
-                <label><input type="radio" name="sauce" value="miel_moutarde"> Sauce miel-moutarde (+1€)</label>
-                <label><input type="radio" name="sauce" value="sesame"> Sauce sésame (+1.2€)</label>
-                <label><input type="radio" name="sauce" value="ranch"> Sauce ranch (+1€)</label>
+                <label><input type="radio" name="sauce" value="pesto"> Pesto (+1DA)</label>
+                <label><input type="radio" name="sauce" value="fromagere"> Sauce fromagère (+1.2DA)</label>
+                <label><input type="radio" name="sauce" value="yaourt_citron"> Sauce yaourt-citron (+1DA)</label>
+                <label><input type="radio" name="sauce" value="cesar"> Sauce césar (+1DA)</label>
+                <label><input type="radio" name="sauce" value="balsamique"> Vinaigrette balsamique (+1DA)</label>
+                <label><input type="radio" name="sauce" value="miel_moutarde"> Sauce miel-moutarde (+1DA)</label>
+                <label><input type="radio" name="sauce" value="sesame"> Sauce sésame (+1.2DA)</label>
+                <label><input type="radio" name="sauce" value="ranch"> Sauce ranch (+1DA)</label>
             </div>
         </div>
         <div class="nav-footer">
@@ -217,7 +217,7 @@
         <div class="container">
             <h2>6. Suppléments graines & toppings</h2>
             <div class="options checkboxes">
-                <h3>Graines (+0.8€)</h3>
+                <h3>Graines (+1DA)</h3>
                 <label><input type="checkbox" name="extras" value="graines_sesame"> Graines de sésame</label>
                 <label><input type="checkbox" name="extras" value="graines_chia"> Graines de chia</label>
                 <label><input type="checkbox" name="extras" value="graines_tournesol"> Graines de tournesol</label>
@@ -225,7 +225,7 @@
                 <label><input type="checkbox" name="extras" value="lin"> Lin</label>
                 <label><input type="checkbox" name="extras" value="pavot"> Pavot</label>
                 
-                <h3>Fruits secs & autres (+1.2€)</h3>
+                <h3>Fruits secs & autres (+1.2DA)</h3>
                 <label><input type="checkbox" name="extras" value="noix_concasees"> Noix concassées</label>
                 <label><input type="checkbox" name="extras" value="amandes_effilees"> Amandes effilées</label>
                 <label><input type="checkbox" name="extras" value="noix_cajou"> Noix de cajou</label>
@@ -253,7 +253,7 @@
         <div class="container">
             <h2>7. Choix de la boisson</h2>
             <div class="options">
-                <h3>Smoothies (+3€)</h3>
+                <h3>Smoothies (+3DA)</h3>
                 <label><input type="checkbox" name="drink" value="smoothie_banane"> Banane</label>
                 <label><input type="checkbox" name="drink" value="smoothie_fraise"> Fraise</label>
                 <label><input type="checkbox" name="drink" value="smoothie_mangue"> Mangue</label>
@@ -261,13 +261,13 @@
                 <label><input type="checkbox" name="drink" value="smoothie_ananas_coco"> Ananas-coco</label>
                 <label><input type="checkbox" name="drink" value="smoothie_exotique"> Cocktail exotique</label>
 
-                <h3>Jus frais (+2.5€)</h3>
+                <h3>Jus frais (+2.5DA)</h3>
                 <label><input type="checkbox" name="drink" value="jus_orange"> Orange pressée</label>
                 <label><input type="checkbox" name="drink" value="jus_citronnade"> Citronnade</label>
                 <label><input type="checkbox" name="drink" value="jus_pomme_gingembre"> Pomme-gingembre</label>
                 <label><input type="checkbox" name="drink" value="jus_carotte_orange"> Carotte-orange</label>
 
-                <h3>Boissons classiques (+1.5€)</h3>
+                <h3>Boissons classiques (+1.5DA)</h3>
                 <label><input type="checkbox" name="drink" value="eau_plate"> Eau plate</label>
                 <label><input type="checkbox" name="drink" value="eau_petillante"> Eau pétillante</label>
                 <label><input type="checkbox" name="drink" value="soda"> Soda</label>
@@ -298,7 +298,7 @@
                 <!-- Les éléments du panier seront ajoutés ici dynamiquement -->
             </div>
             <div class="cart-total">
-                Total: <span id="cartTotal">0</span>€
+                Total: <span id="cartTotal">0</span>DA
             </div>
             <button class="add-bowl" onclick="addAnotherBowl()">+ Ajouter un autre bol</button>
         </div>
@@ -323,7 +323,7 @@
     <!-- Affichage du prix dynamique -->
     <div id="livePriceContainer">
         <span>Total :</span>
-        <span id="livePrice">0€</span>
+        <span id="livePrice">0DA</span>
     </div>
 
     <script src="script.js"></script>

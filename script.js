@@ -31,6 +31,7 @@ function nextSlide() {
     if (currentSlide < slides.length - 1) {
         saveCurrentStep();
         showSlide(currentSlide + 1);
+        updateCart();
     }
 }
 
@@ -41,8 +42,9 @@ function prevSlide() {
 }
 
 function showCart() {
-    saveCurrentStep();
-    showSlide(slides.length - 3); // Avant-dernier slide = panier
+    saveCurrentStep(); // Sauvegarde les données actuelles
+    updateCart();     // Met à jour l'affichage AVANT de changer de slide
+    showSlide(slides.length - 3); // Affiche le panier
 }
 
 // Activer/désactiver le bouton Suivant
@@ -71,13 +73,11 @@ function saveCurrentStep() {
         bowls[currentBowl - 1].size = document.querySelector('input[name="size"]:checked')?.value;
     }
     else if (currentSlide === 2) {
-        // La base est déjà sauvegardée via setBase()
+        bowls[currentBowl - 1].base = document.querySelector('input[name="base"]:checked')?.value;
     }
     else if (currentSlide === 3) {
-        bowls[currentBowl - 1].protein = [];
-        document.querySelectorAll('input[name="protein"]:checked').forEach(el => {
-            bowls[currentBowl - 1].protein.push(el.value);
-        });
+        // Remplacer par ceci pour une seule protéine
+        bowls[currentBowl - 1].protein = document.querySelector('input[name="protein"]:checked')?.value || null;
     }
     else if (currentSlide === 4) {
         bowls[currentBowl - 1].vegetables = [];
@@ -112,13 +112,11 @@ function calculateTotalPrice() {
         else if (bowl.size === 'XXL') total += 12;
 
         // Base
-        if (['salade_laitue', 'salade_roquette', 'salade_epinards', 'salade_mesclun'].includes(bowl.base)) total += 1;
-        else if (bowl.base === 'riz_blanc') total += 1;
-        else if (['riz_complet', 'riz_basmati'].includes(bowl.base)) total += 1.5;
+        if (bowl.base === 'riz_blanc') total += 1;
+        else if (bowl.base === 'riz_complet' || bowl.base === 'riz_basmati') total += 1.5;
         else if (bowl.base === 'riz_sauvage') total += 2;
-        else if (['pates_penne', 'pates_fusilli', 'pates_farfalle', 'pates_orecchiette'].includes(bowl.base)) total += 1.5;
         else if (bowl.base === 'quinoa') total += 2;
-        else if (['boulgour', 'lentilles', 'couscous'].includes(bowl.base)) total += 1.5;
+        else if (bowl.base === 'boulgour' || bowl.base === 'lentilles' || bowl.base === 'couscous') total += 1.5;
 
         // Protéines
         if (bowl.protein === 'poulet_grille') total += 3;
@@ -136,7 +134,7 @@ function calculateTotalPrice() {
             else if (veg === 'concombre' || veg === 'tomates' || veg === 'poivrons' || veg === 'radis' || 
                      veg === 'carottes' || veg === 'cornichons' || veg === 'mais' || veg === 'oignons') total += 0.5;
             else if (veg === 'champignons' || veg === 'betterave' || veg === 'olives_noires' || 
-                     veg === 'olives_vertes' || veg === 'pommes' || veg === 'raisins') total += 0.8;
+                     veg === 'olives_vertes' || veg === 'pommes' || veg === 'raisins') total += 1;
             else if (veg === 'edamame') total += 1;
             else if (veg === 'noix' || veg === 'fromage_rape') total += 1.2;
             else if (veg === 'feta' || veg === 'mozzarella' || veg === 'parmesan') total += 1.5;
@@ -144,14 +142,14 @@ function calculateTotalPrice() {
 
         // Sauces
         if (bowl.sauce === 'mayonnaise' || bowl.sauce === 'ketchup' || bowl.sauce === 'moutarde') total += 0.5;
-        else if (bowl.sauce === 'algerienne' || bowl.sauce === 'barbecue') total += 0.8;
-        else if (bowl.sauce === 'yaourt_citron' || bowl.sauce === 'balsamique') total += 0.8;
+        else if (bowl.sauce === 'algerienne' || bowl.sauce === 'barbecue') total += 1;
+        else if (bowl.sauce === 'yaourt_citron' || bowl.sauce === 'balsamique') total += 1;
         else if (bowl.sauce === 'pesto' || bowl.sauce === 'cesar' || bowl.sauce === 'miel_moutarde' || bowl.sauce === 'ranch') total += 1;
         else if (bowl.sauce === 'fromagere' || bowl.sauce === 'sesame') total += 1.2;
 
         // Suppléments
         bowl.extras.forEach(extra => {
-            if (extra.startsWith('graines_') || extra === 'lin' || extra === 'pavot') total += 0.8;
+            if (extra.startsWith('graines_') || extra === 'lin' || extra === 'pavot') total += 1;
             else if (extra.endsWith('_sechees') || extra.endsWith('_effilees') || extra.endsWith('_concasees') || extra === 'noix_cajou') total += 1.2;
         });
 
@@ -169,7 +167,7 @@ function calculateTotalPrice() {
 // Affichage dynamique du prix
 function updateLivePrice() {
     const total = calculateTotalPrice();
-    document.getElementById('livePrice').textContent = total + '€';
+    document.getElementById('livePrice').textContent = total + 'DA';
 }
 
 // Mise à jour du panier
@@ -179,7 +177,6 @@ function updateCart() {
     
     cartEl.innerHTML = '';
     
-    // Ajout des éléments au panier
     bowls.forEach((bowl, index) => {
         const bowlHeader = document.createElement('h3');
         bowlHeader.textContent = `Bol ${index + 1}`;
@@ -188,38 +185,38 @@ function updateCart() {
         cartEl.appendChild(bowlHeader);
         
         if (bowl.size) {
-            addCartItem('Taille', getLabel('size', bowl.size), getPrice('size', bowl.size), index);
+            addCartItem('Taille', getLabel('size', bowl.size), getPrice('size', bowl.size), index, bowl.size);
         }
         if (bowl.base) {
-            addCartItem('Base', getLabel('base', bowl.base), getPrice('base', bowl.base), index);
+            addCartItem('Base', getLabel('base', bowl.base), getPrice('base', bowl.base), index, bowl.base);
         }
         if (bowl.protein) {
-            addCartItem('Protéine', getLabel('protein', bowl.protein), getPrice('protein', bowl.protein), index);
+            addCartItem('Protéine', getLabel('protein', bowl.protein), getPrice('protein', bowl.protein), index, bowl.protein);
         }
         
         bowl.vegetables.forEach(veg => {
-            addCartItem('Garniture', getLabel('vegetables', veg), getPrice('vegetables', veg), index);
+            addCartItem('Garniture', getLabel('vegetables', veg), getPrice('vegetables', veg), index, veg);
         });
         
         if (bowl.sauce) {
-            addCartItem('Sauce', getLabel('sauce', bowl.sauce), getPrice('sauce', bowl.sauce), index);
+            addCartItem('Sauce', getLabel('sauce', bowl.sauce), getPrice('sauce', bowl.sauce), index, bowl.sauce);
         }
         
         bowl.extras.forEach(extra => {
-            addCartItem('Supplément', getLabel('extras', extra), getPrice('extras', extra), index);
+            addCartItem('Supplément', getLabel('extras', extra), getPrice('extras', extra), index, extra);
         });
         
         if (bowl.drink) {
-            addCartItem('Boisson', getLabel('drink', bowl.drink), getPrice('drink', bowl.drink), index);
+            addCartItem('Boisson', getLabel('drink', bowl.drink), getPrice('drink', bowl.drink), index, bowl.drink);
         }
     });
     
     document.getElementById('cartTotal').textContent = calculateTotalPrice();
 }
 
-function addCartItem(category, name, price, bowlIndex) {
+function addCartItem(category, name, price, bowlIndex, value) {
     const cartEl = document.getElementById('cart');
-    const itemId = `bowl-${bowlIndex}-${category}-${name.replace(/\s+/g, '-')}`;
+    const itemId = `bowl-${bowlIndex}-${category}-${value.replace(/\s+/g, '-')}`;
     
     const itemEl = document.createElement('div');
     itemEl.className = 'cart-item';
@@ -229,15 +226,14 @@ function addCartItem(category, name, price, bowlIndex) {
             <strong>${category}:</strong> ${name}
         </div>
         <div class="cart-item-controls">
-            <span>${price}€</span>
-            <button class="secondary" onclick="removeCartItem('${itemId}', '${category}', '${name}', ${bowlIndex})">-</button>
+            <span>${price}DA</span>
+            <button class="secondary" onclick="removeCartItem(${bowlIndex}, '${category}', '${value}')">-</button>
         </div>
     `;
     cartEl.appendChild(itemEl);
 }
 
-function removeCartItem(itemId, category, name, bowlIndex) {
-    const value = name.split(' (')[0].toLowerCase().replace(/\s+/g, '_');
+function removeCartItem(bowlIndex, category, value) {
     const bowl = bowls[bowlIndex];
     
     if (category === 'Taille') {
@@ -454,18 +450,18 @@ function getPrice(type, value) {
             'concombre': 0.5,
             'tomates': 0.5,
             'poivrons': 0.5,
-            'champignons': 0.8,
-            'betterave': 0.8,
+            'champignons': 1,
+            'betterave': 1,
             'radis': 0.5,
             'carottes': 0.5,
-            'olives_noires': 0.8,
-            'olives_vertes': 0.8,
+            'olives_noires': 1,
+            'olives_vertes': 1,
             'cornichons': 0.5,
             'mais': 0.5,
             'oignons': 0.5,
             'edamame': 1,
-            'pommes': 0.8,
-            'raisins': 0.8,
+            'pommes': 1,
+            'raisins': 1,
             'noix': 1.2,
             'fromage_rape': 1.2,
             'feta': 1.5,
@@ -476,24 +472,24 @@ function getPrice(type, value) {
             'mayonnaise': 0.5,
             'ketchup': 0.5,
             'moutarde': 0.5,
-            'algerienne': 0.8,
-            'barbecue': 0.8,
+            'algerienne': 1,
+            'barbecue': 1,
             'pesto': 1,
             'fromagere': 1.2,
-            'yaourt_citron': 0.8,
+            'yaourt_citron': 1,
             'cesar': 1,
-            'balsamique': 0.8,
+            'balsamique': 1,
             'miel_moutarde': 1,
             'sesame': 1.2,
             'ranch': 1
         },
         extras: {
-            'graines_sesame': 0.8,
-            'graines_chia': 0.8,
-            'graines_tournesol': 0.8,
-            'graines_courge': 0.8,
-            'lin': 0.8,
-            'pavot': 0.8,
+            'graines_sesame': 1,
+            'graines_chia': 1,
+            'graines_tournesol': 1,
+            'graines_courge': 1,
+            'lin': 1,
+            'pavot': 1,
             'noix_concasees': 1.2,
             'amandes_effilees': 1.2,
             'noix_cajou': 1.2,
@@ -544,7 +540,7 @@ function confirmOrder() {
         if (bowl.drink) details += `<p><strong>Boisson :</strong> ${getLabel('drink', bowl.drink)}</p>`;
     });
     
-    details += `<p><strong>Total :</strong> ${calculateTotalPrice()}€</p>`;
+    details += `<p><strong>Total :</strong> ${calculateTotalPrice()}DA</p>`;
     
     orderDetailsEl.innerHTML = details;
     showSlide(slides.length - 1); // Dernier slide = confirmation
@@ -552,10 +548,12 @@ function confirmOrder() {
 
 // Réinitialisation
 function resetOrder() {
+    // Désélectionner tous les inputs
     document.querySelectorAll('input').forEach(input => {
         input.checked = false;
     });
     
+    // Réinitialiser les données
     bowls.length = 1;
     currentBowl = 1;
     bowls[0] = {
@@ -568,8 +566,13 @@ function resetOrder() {
         drink: null
     };
     
+    // Réinitialiser l'affichage
     showSlide(0);
     updateLivePrice();
+    
+    // Réactiver les boutons Suivant
+    enableNext(1);
+    enableNext(2);
 }
 
 // Écouteurs pour mise à jour en temps réel
@@ -582,6 +585,12 @@ document.querySelectorAll('input').forEach(input => {
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
+    // Désélectionner explicitement tous les inputs
+    document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
+        input.checked = false;
+        input.removeAttribute('checked'); // Supprime l'attribut checked s'il existe
+    });
+    
     showSlide(0);
     document.getElementById('nextBtn1').disabled = true;
     document.getElementById('nextBtn2').disabled = true;
