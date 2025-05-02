@@ -87,3 +87,53 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.nav-links').classList.toggle('active');
     });
 });
+
+
+function ajouterAuPanier(nomSalade) {
+    // Récupérer le panier actuel depuis le localStorage
+    let panier = JSON.parse(localStorage.getItem("panier")) || [];
+
+    // Ajouter la salade au panier
+    panier.push(nomSalade);
+
+    // Sauvegarder le panier mis à jour
+    localStorage.setItem("panier", JSON.stringify(panier));
+
+    // Notification simple
+    alert(nomSalade + " a été ajoutée au panier !");
+}
+
+
+
+function afficherPanier() {
+    let panier = JSON.parse(localStorage.getItem("panier")) || [];
+    let liste = document.getElementById("listePanier");
+    liste.innerHTML = "";
+
+    if (panier.length === 0) {
+        liste.innerHTML = "<li>Votre panier est vide.</li>";
+    } else {
+        panier.forEach((salade, index) => {
+            const item = document.createElement("li");
+            item.textContent = `${index + 1}. ${salade}`;
+            liste.appendChild(item);
+        });
+    }
+
+    document.getElementById("panierModal").style.display = "block";
+}
+
+// Événements pour ouvrir/fermer la modale
+document.getElementById("voirPanierBtn").addEventListener("click", afficherPanier);
+document.getElementById("fermerPanier").addEventListener("click", () => {
+    document.getElementById("panierModal").style.display = "none";
+});
+window.addEventListener("click", (e) => {
+    if (e.target === document.getElementById("panierModal")) {
+        document.getElementById("panierModal").style.display = "none";
+    }
+});
+
+
+
+

@@ -16,9 +16,25 @@
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#benefits">Bienfaits</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><button id="voirPanierBtn">🛒 Voir le panier</button>  
+            </li>
         </ul>
     </nav>
-
+    
+    
+    <div id="panierModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Votre panier</h2>
+            <span class="close" id="fermerPanier">&times;</span>
+          </div>
+          <ul id="listePanier"></ul>
+          <div class="modal-footer">
+            <button id="commanderBtn" class="passer-commande">Commander maintenant</button>
+          </div>
+        </div>
+      </div>
+      
     <!-- Section Accueil -->
     <section class="hero" id="accueil">
         <div class="hero-content">
@@ -40,7 +56,10 @@
                     <p><strong>Ingrédients :</strong> Concombre, tomates cerises, radis, carottes râpées, maïs</p>
                     <p><strong>Sauce :</strong> Vinaigrette balsamique</p>
                     <p><strong>Suppléments :</strong> Graines de tournesol</p>
+                    <button class="btn-ajouter-panier" onclick="ajouterAuPanier('Salade Fraîcheur')">Ajouter au panier</button>
+
                 </div>
+                
             </div>
         
             <!-- Salade Protéinée -->
@@ -164,25 +183,26 @@
 
     <!-- Section Bienfaits -->
     <section class="benefits" id="benefits">
-        <h2 style="text-align: center; margin-bottom: 2rem;">Les bienfaits de nos salades</h2>
+        <h2>Les bienfaits de nos salades</h2>
         <div class="benefits-grid">
             <div class="benefit-card">
                 <i class="fas fa-heart"></i>
                 <h3>Santé cardiaque</h3>
-                <p>Riches en antioxydants et acides gras essentiels</p>
+                <p>Nos salades sont riches en antioxydants naturels, en fibres et en acides gras essentiels comme les oméga-3, qui aident à réduire le cholestérol et à maintenir une bonne circulation sanguine. Elles participent activement à la prévention des maladies cardiovasculaires.</p>
             </div>
             <div class="benefit-card">
                 <i class="fas fa-leaf"></i>
                 <h3>100% Bio</h3>
-                <p>Des légumes cultivés sans pesticides ni OGM</p>
+                <p>Nous sélectionnons exclusivement des légumes issus de l’agriculture biologique, cultivés sans pesticides chimiques, sans engrais artificiels et sans OGM. C’est un choix sain pour votre organisme et respectueux de l’environnement.</p>
             </div>
             <div class="benefit-card">
                 <i class="fas fa-clock"></i>
                 <h3>Préparation minute</h3>
-                <p>Livraison en moins de 24h après commande</p>
+                <p>Toutes nos salades sont préparées à la demande, juste après réception de votre commande. Cela garantit une fraîcheur optimale, un goût authentique, et une livraison rapide en moins de 24 heures, directement à votre porte.</p>
             </div>
         </div>
     </section>
+    
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-content">
@@ -223,14 +243,7 @@
 
 
     
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-          <span class="close" onclick="closeOrderModal()">&times;</span>
-          <div class="modal-steps">
-            <!-- Contenu des étapes de commande ici -->
-          </div>
-        </div>
-      </div>
+   
       <script src="script.js" defer></script>
 </body>
-</html>
+</html> 

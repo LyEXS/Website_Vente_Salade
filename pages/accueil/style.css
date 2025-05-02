@@ -258,19 +258,16 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 44, 38, 0.8);
-    overflow-y: auto;
-}
+    background-color: rgba(0,0,0,0.4);
+}   
 
 .modal-content {
-    background: white;
-    margin: 2% auto;
-    padding: 30px;
-    border-radius: 15px;
-    width: 95%;
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
     max-width: 500px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
-    animation: slideIn 0.3s ease-out;
 }
 
 @keyframes slideIn {
@@ -432,3 +429,133 @@ body {
 #salade-modal .btn-close:hover {
     background: #002C26;
 }
+
+
+
+
+
+
+
+.btn-ajouter-panier {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ajouter-panier:hover {
+    background-color: #45a049;
+}
+
+
+/* Style de la modale */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(3px);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 25px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    animation: modalOpen 0.3s ease;
+  }
+  
+  @keyframes modalOpen {
+    from {transform: scale(0.9); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .modal-footer {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+    text-align: right;
+  }
+  
+  .close {
+    color: #666;
+    font-size: 28px;
+    font-weight: 300;
+    transition: color 0.3s ease;
+  }
+  
+  .close:hover {
+    color: #333;
+  }
+  
+  .passer-commande {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .passer-commandehover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  }
+  
+  #listePanier {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+  
+  /* Style des éléments du panier */
+  #listePanier li {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 90%;
+      margin: 10% auto;
+    }
+    
+    .btn-commander {
+      width: 100%;
+      padding: 15px;
+    }
+  }
