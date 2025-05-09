@@ -1,5 +1,4 @@
 // Fonction pour afficher les détails de la salade
-// Fonction pour afficher les détails de la salade
 function showDetails(saladeId) {
     console.log("Tentative d'affichage pour:", saladeId);
 
@@ -39,6 +38,7 @@ function showDetails(saladeId) {
             <div class="modal-text-content">
                 <h2>${saladeName}</h2>
                 ${details}
+                <button onclick="ajouterAuPanier('${saladeName}')" class="btn-ajouter-panier">Ajouter au panier</button>
                 <button onclick="closeSaladeModal()" class="btn-close">Fermer</button>
             </div>
         `;
@@ -49,7 +49,6 @@ function showDetails(saladeId) {
         console.error("Erreur dans showDetails:", error);
     }
 }
-
 
 // Fonction pour fermer la modal des salades
 function closeSaladeModal() {
@@ -101,6 +100,7 @@ function ajouterAuPanier(nomSalade) {
 
     // Notification simple
     alert(nomSalade + " a été ajoutée au panier !");
+    closeSaladeModal();
 }
 
 
@@ -110,17 +110,68 @@ function afficherPanier() {
     let liste = document.getElementById("listePanier");
     liste.innerHTML = "";
 
+    let totalPrice = 0; // Initialize total price
+
     if (panier.length === 0) {
-        liste.innerHTML = "<li>Votre panier est vide.</li>";
+        liste.innerHTML = "<li class='empty-panier'>Votre panier est vide.</li>";
     } else {
         panier.forEach((salade, index) => {
             const item = document.createElement("li");
-            item.textContent = `${index + 1}. ${salade}`;
+            item.className = "panier-item";
+
+            const itemText = document.createElement("span");
+            // Get the price of the salad
+            const price = getSaladPrice(salade);
+            totalPrice += price; // Add to total price
+            itemText.textContent = `${index + 1}. ${salade} - ${price} DZD`; // Display price
+            itemText.className = "panier-item-text";
+
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "Supprimer";
+            removeButton.className = "btn-remove";
+            removeButton.onclick = () => {
+                panier.splice(index, 1);
+                localStorage.setItem("panier", JSON.stringify(panier));
+                afficherPanier();
+            };
+
+            item.appendChild(itemText);
+            item.appendChild(removeButton);
             liste.appendChild(item);
         });
     }
 
+    // Display total price
+    const modalFooter = document.querySelector("#panierModal .modal-footer");
+    modalFooter.innerHTML = `<div class="total-price">Total: ${totalPrice} DZD</div><button id="commanderBtn" class="passer-commande">Commander maintenant</button>`;
+
     document.getElementById("panierModal").style.display = "block";
+
+    // Add event listener to the "Commander maintenant" button
+    document.getElementById("commanderBtn").addEventListener("click", () => {
+        // Redirect to the payment page with the total price
+        window.location.href = `../payment/index.html?total=${totalPrice}`;
+    });
+}
+
+// Function to get the price of a salad
+function getSaladPrice(saladName) {
+    const prices = {
+        "Salade Fraîcheur": 120,
+        "Salade Protéinée": 250,
+        "Salade Méditerranéenne": 180,
+        "Salade Nordique": 300,
+        "Salade César revisitée": 200,
+        "Salade Exotique": 280,
+        "Salade Végétarienne Gourmande": 230,
+        "Salade Italienne": 190,
+        "Salade Détox": 150,
+        "Salade Énergisante": 270,
+        "Salade des Pâtes": 170,
+        "Salade Algérienne": 160,
+        "Macédoine": 150
+    };
+    return prices[saladName] || 0; // Return 0 if price not found
 }
 
 // Événements pour ouvrir/fermer la modale

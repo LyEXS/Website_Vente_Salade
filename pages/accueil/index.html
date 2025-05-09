@@ -10,17 +10,15 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">FreshSalades</div>
+        <div class="logo"><img src="../../images/logo/Logo+Slogan-Photoroom.png" alt=""></div>
         <ul class="nav-links">
             <li><a href="#accueil">Accueil</a></li>
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#benefits">Bienfaits</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><button id="voirPanierBtn">🛒 Voir le panier</button>  
-            </li>
         </ul>
+        <button id="voirPanierBtn">🛒 Voir le panier</button>
     </nav>
-    
     
     <div id="panierModal" class="modal">
         <div class="modal-content">
@@ -56,10 +54,8 @@
                     <p><strong>Ingrédients :</strong> Concombre, tomates cerises, radis, carottes râpées, maïs</p>
                     <p><strong>Sauce :</strong> Vinaigrette balsamique</p>
                     <p><strong>Suppléments :</strong> Graines de tournesol</p>
-                    <button class="btn-ajouter-panier" onclick="ajouterAuPanier('Salade Fraîcheur')">Ajouter au panier</button>
-
+                    <p><strong>Prix :</strong> 120 DZD</p> <!-- Added price -->
                 </div>
-                
             </div>
         
             <!-- Salade Protéinée -->
@@ -71,6 +67,7 @@
                     <p><strong>Ingrédients :</strong> Poulet grillé, edamame, avocat, œufs durs, betteraves</p>
                     <p><strong>Sauce :</strong> Sauce miel-moutarde</p>
                     <p><strong>Suppléments :</strong> Noix concassées</p>
+                    <p><strong>Prix :</strong> 250 DZD</p> <!-- Added price -->
                 </div>
             </div>
         
@@ -83,6 +80,7 @@
                     <p><strong>Ingrédients :</strong> Feta, olives noires, poivrons, oignons rouges, tomates cerises</p>
                     <p><strong>Sauce :</strong> Pesto</p>
                     <p><strong>Suppléments :</strong> Graines de sésame</p>
+                    <p><strong>Prix :</strong> 180 DZD</p> <!-- Added price -->
                 </div>
             </div>
         
@@ -95,6 +93,7 @@
                     <p><strong>Ingrédients :</strong> Saumon fumé, avocat, concombre, oignons rouges, fromage râpé</p>
                     <p><strong>Sauce :</strong> Sauce yaourt-citron</p>
                     <p><strong>Suppléments :</strong> Graines de pavot</p>
+                    <p><strong>Prix :</strong> 300 DZD</p> <!-- Added price -->
                 </div>
             </div>
         
@@ -107,6 +106,7 @@
                     <p><strong>Ingrédients :</strong> Poulet crispy, parmesan, croûtons, laitue</p>
                     <p><strong>Sauce :</strong> Sauce césar</p>
                     <p><strong>Suppléments :</strong> Graines de lin</p>
+                    <p><strong>Prix :</strong> 200 DZD</p> <!-- Added price -->
                 </div>
             </div>
         
@@ -119,6 +119,7 @@
                     <p><strong>Ingrédients :</strong> Crevettes, mangue, poivrons, maïs, noix de cajou</p>
                     <p><strong>Sauce :</strong> Sauce sésame</p>
                     <p><strong>Suppléments :</strong> Graines de chia</p>
+                    <p><strong>Prix :</strong> 280 DZD</p> <!-- Added price -->
                 </div>
             </div>
         
@@ -131,6 +132,7 @@
                     <p><strong>Ingrédients :</strong> Tofu, champignons, edamame, betteraves, noix</p>
                     <p><strong>Sauce :</strong> Sauce fromagère</p>
                     <p><strong>Suppléments :</strong> Amandes effilées</p>
+                    <p><strong>Prix :</strong> 230 DZD</p> <!-- Added price -->
                 </div>
             </div>
         
@@ -143,6 +145,7 @@
                     <p><strong>Ingrédients :</strong> Mozzarella, tomates cerises, olives vertes, basilic frais</p>
                     <p><strong>Sauce :</strong> Pesto</p>
                     <p><strong>Suppléments :</strong> Graines de tournesol</p>
+                    <p><strong>Prix :</strong> 190 DZD</p> <!-- Added price -->
                 </div>
             </div>
         
@@ -155,6 +158,7 @@
                     <p><strong>Ingrédients :</strong> Pommes, raisins secs, radis, betteraves, noix</p>
                     <p><strong>Sauce :</strong> Vinaigrette balsamique</p>
                     <p><strong>Suppléments :</strong> Graines de courge</p>
+                    <p><strong>Prix :</strong> 150 DZD</p> <!-- Added price -->
                 </div>
             </div>
         
@@ -167,6 +171,46 @@
                     <p><strong>Ingrédients :</strong> Bœuf mariné, avocat, oignons rouges, champignons, parmesan</p>
                     <p><strong>Sauce :</strong> Sauce barbecue</p>
                     <p><strong>Suppléments :</strong> Cranberries séchées</p>
+                    <p><strong>Prix :</strong> 270 DZD</p> <!-- Added price -->
+                </div>
+            </div>
+
+            <!-- Salade des Pâtes -->
+            <div class="salade-card" onclick="showDetails('pates')">
+                <div class="salade-image" style="background-image: url('../../images/salade_pattes.png')"></div>
+                <div class="salade-name">Salade des Pâtes</div>
+                <div class="salade-details" id="pates-details">
+                    <p><strong>Base :</strong> Pâtes</p>
+                    <p><strong>Ingrédients :</strong> Thon ou surimi (facultatif), maïs, tomates cerises, poivron, oignon rouge</p>
+                    <p><strong>Fromage :</strong> Emmental ou feta</p>
+                    <p><strong>Suppléments :</strong> Olives noires (facultatif), persil ou basilic</p>
+                    <p><strong>Assaisonnement :</strong> Huile d'olive, vinaigre, sel, poivre</p>
+                    <p><strong>Prix :</strong> 170 DZD</p>
+                </div>
+            </div>
+
+            <!-- Salade Algérienne -->
+            <div class="salade-card" onclick="showDetails('algerienne')">
+                <div class="salade-image" style="background-image: url('../../images/salade_algerienne.png')"></div>
+                <div class="salade-name">Salade Algérienne</div>
+                <div class="salade-details" id="algerienne-details">
+                    <p><strong>Ingrédients :</strong> Tomates, concombre, poivron, oignon, œufs durs, olives</p>
+                    <p><strong>Herbes :</strong> Persil</p>
+                    <p><strong>Assaisonnement :</strong> Vinaigre, huile d'olive, sel, poivre</p>
+                    <p><strong>Prix :</strong> 130 DZD</p>
+                </div>
+            </div>
+
+            <!-- Macédoine -->
+            <div class="salade-card" onclick="showDetails('macedoine')">
+                <div class="salade-image" style="background-image: url('../../images/salade_macédoine.pngyou')"></div>
+                <div class="salade-name">Macédoine</div>
+                <div class="salade-details" id="macedoine-details">
+                    <p><strong>Légumes :</strong> Carottes, petits pois, haricots verts, pommes de terre</p>
+                    <p><strong>Supplément :</strong> Maïs</p>
+                    <p><strong>Sauce :</strong> Mayonnaise</p>
+                    <p><strong>Assaisonnement :</strong> Sel, poivre</p>
+                    <p><strong>Prix :</strong> 150 DZD</p>
                 </div>
             </div>
         </div>
@@ -246,4 +290,4 @@
    
       <script src="script.js" defer></script>
 </body>
-</html> 
+</html>

@@ -14,10 +14,10 @@ body {
     padding-bottom: 100px;
 }
 
-/* Navbar harmonisée */
+/* Navbar styling */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Distribute space between items */
     align-items: center;
     padding: 1rem 5%;
     background: white;
@@ -28,17 +28,36 @@ body {
     z-index: 1000;
 }
 
+/* Logo styling */
 .logo {
-    font-size: 1.8rem;
-    color: #CB593F;
-    font-weight: bold;
-    font-family: 'Chau Philomene', sans-serif;
+    height: 80px;
+    width : 120px;
+    padding: 0;
+    transform: scale(1.5);
 }
 
+.logo img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Navigation links styling */
 .nav-links {
     display: flex;
+    align-items: center;
+    justify-content: center; /* Center the links horizontally */
     gap: 2rem;
     list-style: none;
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Reset default padding */
+    flex: 1; /* Allow the links to take up remaining space */
+    text-align: center; /* Ensure links are centered within their container */
+}
+
+.nav-links li {
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Reset default padding */
 }
 
 .nav-links a {
@@ -51,6 +70,33 @@ body {
 .nav-links a:hover {
     color: #CB593F;
     transform: translateY(-2px);
+}
+
+/* "Voir le panier" button styling */
+#voirPanierBtn {
+    background-color: transparent;
+    color: #CB593F;
+    border: 1px solid #CB593F;
+    padding: 8px 20px;
+    border-radius: 0; /* Rectangular look */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    margin-left: auto; /* Push the button to the far right */
+}
+
+#voirPanierBtn:hover {
+    background-color: #CB593F;
+    color: #FEF3D6;
+    border-color: #CB593F;
+    transform: translateY(-1px);
+}
+
+#voirPanierBtn:active {
+    transform: translateY(0);
+    background-color: #A94432; /* Slightly darker shade for active state */
 }
 
 /* Section Hero harmonisée */
@@ -258,16 +304,19 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.4);
+
 }   
 
 .modal-content {
+    position: relative;
     background-color: #fefefe;
-    margin: 10% auto;
+    margin: 15% auto; /* Centrage vertical et horizontal */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
+    width: 80%; /* Ajustez selon vos besoins */
+    max-width: 600px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
 }
 
 @keyframes slideIn {
@@ -283,8 +332,103 @@ body {
     transition: color 0.3s;
 }
 
-.close:hover {
-    color: #002C26;
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Styles pour la modal du panier */
+#panierModal {
+    display: none; /* Masquée par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    z-index: 1000;
+    overflow: auto; /* Pour gérer le contenu long */
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #CB593F;
+}
+
+/* Style des éléments du panier */
+#listePanier {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+#listePanier li {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#listePanier li:last-child {
+    border-bottom: none;
+}
+
+.panier-item-text {
+    flex-grow: 1;
+}
+
+.btn-remove {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-remove:hover {
+    background-color: #da190b;
+}
+
+.empty-panier {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+}
+
+.modal-footer {
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+.passer-commande {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.passer-commande:hover {
+    background-color: #45a049;
 }
 
 /* Responsive harmonisé */
@@ -308,7 +452,13 @@ body {
     }
     
     .modal-content {
-        padding: 20px 15px;
+        width: 90%;
+        margin: 10% auto;
+    }
+    
+    .btn-commander {
+        width: 100%;
+        padding: 15px;
     }
 }
 
@@ -338,52 +488,69 @@ body {
     position: relative;
 }
 
+/* Salades Container */
 .salades-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted minmax for better spacing */
     gap: 20px;
-    padding: 20px;
+    padding: 30px; /* Increased padding for better spacing */
 }
 
 .salade-card {
-    background: white;
-    border-radius: 10px;
+    background: #f9f9f9; /* Light gray background */
+    border-radius: 12px; /* Slightly more rounded corners */
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer shadow */
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
 .salade-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px); /* Slightly higher hover effect */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Enhanced shadow on hover */
 }
 
 .salade-image {
-    height: 150px;
+    height: 200px; /* Increased height for better visibility */
     background-size: cover;
     background-position: center;
+    transition: transform 0.4s ease; /* Smooth zoom effect */
+}
+
+.salade-card:hover .salade-image {
+    transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .salade-name {
-    padding: 15px;
+    padding: 20px; /* Increased padding */
     text-align: center;
-    font-weight: bold;
-    color: #002C26;
+    font-weight: 600; /* Slightly bolder font */
+    color: #333; /* Darker text color */
+    font-size: 1.1rem; /* Slightly larger font size */
 }
 
 .salade-details {
     display: none; /* Caché par défaut */
+    padding: 20px; /* Added padding for details */
+    color: #555; /* Muted color for details */
+    font-size: 0.9rem; /* Slightly smaller font size for details */
 }
 
 /* Styles spécifiques pour la modal des salades */
 #salade-modal .modal-content {
+  
     padding: 0;
     overflow: hidden;
+    border-radius: 15px; /* Rounded corners for the modal */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* More pronounced shadow for the modal */
+}
+#salade-modal {
+    transform: translateY(-27%);
 }
 
 #salade-modal .modal-image-container {
     width: 100%;
-    height: 250px;
+    height: 300px; /* Increased height for modal image */
     overflow: hidden;
 }
 
@@ -392,10 +559,26 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: transform 0.4s ease; /* Smooth zoom effect */
+}
+
+#salade-modal:hover .modal-image {
+    transform: scale(1.02); /* Slight zoom on hover */
 }
 
 #salade-modal .modal-text-content {
-    padding: 20px;
+    padding: 30px; /* Increased padding for modal text */
+}
+
+#salade-modal .modal-text-content h2 {
+    font-size: 1.75rem; /* Larger font size for modal title */
+    color: #333; /* Darker color for modal title */
+    margin-bottom: 15px; /* Increased margin */
+}
+
+#salade-modal .modal-text-content p {
+    color: #555; /* Muted color for modal text */
+    margin-bottom: 10px; /* Increased margin */
 }
 
 #salade-modal .close {
@@ -412,150 +595,77 @@ body {
     justify-content: center;
     font-size: 24px;
     z-index: 10;
+    transition: background 0.3s ease; /* Smooth background transition */
+}
+
+#salade-modal .close:hover {
+    background: rgba(0,0,0,0.7); /* Darker background on hover */
 }
 
 #salade-modal .btn-close {
     display: block;
     margin: 20px auto 0;
-    padding: 10px 20px;
+    padding: 12px 24px; /* Increased padding */
     background: #CB593F;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* Rounded corners */
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    font-weight: 500; /* Slightly bolder font */
 }
 
 #salade-modal .btn-close:hover {
     background: #002C26;
 }
 
-
-
-
-
-
-
 .btn-ajouter-panier {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    margin: 10px;
+    display: block; /* Make it a block element */
+    margin: 15px auto; /* Center horizontally */
+    background-color: transparent; /* Transparent background */
+    color: #CB593F; /* Text color to match the theme */
+    border: 1px solid #CB593F; /* Border to match the theme */
+    padding: 10px 20px; /* Adjust padding */
     cursor: pointer;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    font-weight: 500; /* Slightly lighter font weight */
+    border-radius: 25px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition */
+    font-size: 0.9rem; /* Adjust font size */
+    text-align: center; /* Ensure text is centered */
+    width: fit-content; /* Adjust width to fit content */
 }
 
 .btn-ajouter-panier:hover {
-    background-color: #45a049;
+    background-color: #CB593F; /* Background color on hover */
+    color: #FEF3D6; /* Text color on hover */
+    border-color: #CB593F; /* Border color on hover */
 }
 
-
-/* Style de la modale */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
-    backdrop-filter: blur(3px);
-  }
-  
-  .modal-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 25px;
-    border-radius: 12px;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    position: relative;
-    animation: modalOpen 0.3s ease;
-  }
-  
-  @keyframes modalOpen {
-    from {transform: scale(0.9); opacity: 0;}
-    to {transform: scale(1); opacity: 1;}
-  }
-  
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-  }
-  
-  .modal-footer {
-    border-top: 1px solid #eee;
-    padding-top: 15px;
-    margin-top: 15px;
-    text-align: right;
-  }
-  
-  .close {
-    color: #666;
-    font-size: 28px;
-    font-weight: 300;
-    transition: color 0.3s ease;
-  }
-  
-  .close:hover {
-    color: #333;
-  }
-  
-  .passer-commande {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  
-  .passer-commandehover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-  }
-  
-  #listePanier {
+/* Style des éléments du panier */
+#listePanier {
     list-style: none;
     padding: 0;
     margin: 0;
     max-height: 50vh;
     overflow-y: auto;
-  }
-  
-  /* Style des éléments du panier */
-  #listePanier li {
+}
+
+#listePanier li {
     padding: 12px;
     border-bottom: 1px solid #eee;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .modal-content {
-      width: 90%;
-      margin: 10% auto;
+        width: 90%;
+        margin: 10% auto;
     }
     
     .btn-commander {
-      width: 100%;
-      padding: 15px;
+        width: 100%;
+        padding: 15px;
     }
-  }
+}
