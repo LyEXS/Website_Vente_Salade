@@ -185,6 +185,11 @@ window.addEventListener("click", (e) => {
     }
 });
 
-
-
-
+function transfertPanier() {
+    const panierAccueil = JSON.parse(localStorage.getItem("panier")) || [];
+    const panierAvecPrix = panierAccueil.map(salade => ({
+        nom: salade,
+        prix: getSaladPrice(salade)
+    }));
+    localStorage.setItem("panierTransfert", JSON.stringify(panierAvecPrix));
+}

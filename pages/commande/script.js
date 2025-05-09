@@ -12,6 +12,10 @@ const bowls = [{
     drink:[]
 }];
 
+
+
+
+
 // Navigation
 function showSlide(index) {
     slides.forEach(slide => slide.classList.remove('active'));
@@ -33,11 +37,6 @@ function nextSlide() {
         saveCurrentStep();
         showSlide(currentSlide + 1);
         updateCart();
-        // Scroll to top smoothly
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
     }
 }
 
@@ -197,13 +196,36 @@ function updateCart() {
     if (!cartEl) return;
     
     cartEl.innerHTML = '';
-    
-    if (bowls.length === 0 || bowls.every(bowl => isBowlEmpty(bowl))) {
-        cartEl.innerHTML = '<p class="empty-cart">Votre panier est vide</p>';
-        document.getElementById('cartTotal').textContent = '0';
-        return;
+
+    // Afficher les salades prédéfinies transférées
+    const panierTransfert = JSON.parse(localStorage.getItem("panierTransfert")) || [];
+    let totalTransfert = 0;
+    if (panierTransfert.length > 0) {
+        const transferHeader = document.createElement('h3');
+        transferHeader.textContent = 'Salades prédéfinies';
+        transferHeader.style.marginTop = '15px';
+        transferHeader.style.color = '#2e8b57';
+        cartEl.appendChild(transferHeader);
+
+        panierTransfert.forEach((item, index) => {
+            const itemEl = document.createElement('div');
+            itemEl.className = 'cart-item';
+            itemEl.innerHTML = `
+                <div>
+                    <strong>Salade:</strong> ${item.nom}
+                </div>
+                <div class="cart-item-controls">
+                    <span>${item.prix} DZD</span>
+                    <button class="secondary" onclick="removeTransferedItem(${index})">-</button>
+                </div>
+            `;
+            cartEl.appendChild(itemEl);
+            totalTransfert += item.prix;
+        });
     }
-    
+
+    // Ensuite afficher les bols personnalisés
+    let totalPerso = 0;
     bowls.forEach((bowl, index) => {
         if (isBowlEmpty(bowl)) return;
         
@@ -216,52 +238,62 @@ function updateCart() {
         // Afficher chaque catégorie
         if (bowl.size) {
             addCartItem('Taille', getLabel('size', bowl.size), getPrice('size', bowl.size), index, bowl.size);
+            totalPerso += getPrice('size', bowl.size);
         }
-        
         if (bowl.base.length > 0) {
             bowl.base.forEach(base => {
                 addCartItem('Base', getLabel('base', base), getPrice('base', base), index, base);
+                totalPerso += getPrice('base', base);
             });
         }
-        
         if (bowl.protein.length > 0) {
             bowl.protein.forEach(prot => {
                 addCartItem('Protéine', getLabel('protein', prot), getPrice('protein', prot), index, prot);
+                totalPerso += getPrice('protein', prot);
             });
         }
-        
         if (bowl.vegetables.length > 0) {
             bowl.vegetables.forEach(veg => {
                 addCartItem('Garniture', getLabel('vegetables', veg), getPrice('vegetables', veg), index, veg);
+                totalPerso += getPrice('vegetables', veg);
             });
         }
-        
         if (bowl.sauce.length > 0) {
             bowl.sauce.forEach(s => {
                 addCartItem('Sauce', getLabel('sauce', s), getPrice('sauce', s), index, s);
+                totalPerso += getPrice('sauce', s);
             });
         }
-        
         if (bowl.extras.length > 0) {
             bowl.extras.forEach(extra => {
                 addCartItem('Supplément', getLabel('extras', extra), getPrice('extras', extra), index, extra);
+                totalPerso += getPrice('extras', extra);
             });
         }
-
         if (bowl.croutons.length > 0) {
             bowl.croutons.forEach(crouton => {
                 addCartItem('Croutons', getLabel('croutons', crouton), getPrice('croutons', crouton), index, crouton);
+                totalPerso += getPrice('croutons', crouton);
             });
         }
-        
         if (bowl.drink.length > 0) {
             bowl.drink.forEach(d => {
                 addCartItem('Boisson', getLabel('drink', d), getPrice('drink', d), index, d);
+                totalPerso += getPrice('drink', d);
             });
         }
     });
-    
-    document.getElementById('cartTotal').textContent = calculateTotalPrice() + ' DZD';
+
+    document.getElementById('cartTotal').textContent = (totalTransfert + totalPerso) + ' DZD';
+}
+
+// Fonction pour supprimer une salade prédéfinie du panier
+function removeTransferedItem(index) {
+    const panierTransfert = JSON.parse(localStorage.getItem("panierTransfert")) || [];
+    panierTransfert.splice(index, 1);
+    localStorage.setItem("panierTransfert", JSON.stringify(panierTransfert));
+    updateCart();
+    updateTicket();
 }
 
 function addCartItem(category, name, price, bowlIndex, value) {
@@ -344,11 +376,12 @@ function isBowlEmpty(bowl) {
 function addAnotherBowl() {
     bowls.push({
         size: null,
-        base: [], // Initialisé comme tableau vide
-        protein: [], // Initialisé comme tableau vide
+        base: [],
+        protein: [],
         vegetables: [],
-        sauce: [], // Initialisé comme tableau vide
+        sauce: [],
         extras: [],
+        croutons: [], // <-- Ajoute cette ligne
         drink: []
     });
     currentBowl = bowls.length;
@@ -626,25 +659,26 @@ function resetOrder() {
     document.querySelectorAll('input').forEach(input => {
         input.checked = false;
     });
-    
+
     // Réinitialiser les données
     bowls.length = 1;
     currentBowl = 1;
     bowls[0] = {
         size: null,
-        base: null,
-        protein: null,
+        base: [],
+        protein: [],
         vegetables: [],
-        sauce: null,
+        sauce: [],
         extras: [],
+        croutons: [], // <-- Ajoute cette ligne
         drink: []
     };
-    
+
     // Réinitialiser l'affichage
     showSlide(0);
     updateLivePrice();
     updateTicket();
-    
+
     // Réactiver les boutons Suivant
     enableNext(1);
     enableNext(2);
@@ -664,8 +698,24 @@ function updateTicket() {
     
     // Vider le ticket
     ticketItemsEl.innerHTML = '';
-    
-    // Parcourir tous les bols
+
+    // Afficher les salades prédéfinies transférées
+    const panierTransfert = JSON.parse(localStorage.getItem("panierTransfert")) || [];
+    let totalTransfert = 0;
+    if (panierTransfert.length > 0) {
+        const transferHeader = document.createElement('div');
+        transferHeader.className = 'ticket-item';
+        transferHeader.innerHTML = '<strong>Salades prédéfinies</strong>';
+        ticketItemsEl.appendChild(transferHeader);
+
+        panierTransfert.forEach(item => {
+            addTicketItem(item.nom, item.prix);
+            totalTransfert += item.prix;
+        });
+    }
+
+    // Parcourir tous les bols personnalisés
+    let totalPerso = 0;
     bowls.forEach((bowl, bowlIndex) => {
         if (isBowlEmpty(bowl)) return;
         
@@ -678,48 +728,47 @@ function updateTicket() {
         // Ajouter la taille
         if (bowl.size) {
             addTicketItem(`Taille: ${getLabel('size', bowl.size)}`, getPrice('size', bowl.size));
+            totalPerso += getPrice('size', bowl.size);
         }
-        
         // Ajouter les bases
         bowl.base.forEach(base => {
             addTicketItem(getLabel('base', base), getPrice('base', base));
+            totalPerso += getPrice('base', base);
         });
-        
         // Ajouter les protéines
         bowl.protein.forEach(prot => {
             addTicketItem(getLabel('protein', prot), getPrice('protein', prot));
+            totalPerso += getPrice('protein', prot);
         });
-        
         // Ajouter les légumes
         bowl.vegetables.forEach(veg => {
             addTicketItem(getLabel('vegetables', veg), getPrice('vegetables', veg));
+            totalPerso += getPrice('vegetables', veg);
         });
-        
         // Ajouter les sauces
         bowl.sauce.forEach(s => {
             addTicketItem(getLabel('sauce', s), getPrice('sauce', s));
+            totalPerso += getPrice('sauce', s);
         });
-        
         // Ajouter les extras
         bowl.extras.forEach(extra => {
             addTicketItem(getLabel('extras', extra), getPrice('extras', extra));
+            totalPerso += getPrice('extras', extra);
         });
-
         // Ajouter les croutons
         bowl.croutons.forEach(c => {
             addTicketItem(getLabel('croutons', c), getPrice('croutons', c));
+            totalPerso += getPrice('croutons', c);
         });
-
-        
-        
         // Ajouter les boissons
         bowl.drink.forEach(d => {
             addTicketItem(getLabel('drink', d), getPrice('drink', d));
+            totalPerso += getPrice('drink', d);
         });
     });
     
-    // Mettre à jour le total
-    ticketTotalEl.textContent = calculateTotalPrice() + '  DZD';
+    // Mettre à jour le total (prédéfini + personnalisé)
+    ticketTotalEl.textContent = (totalTransfert + totalPerso) + '  DZD';
 }
 
 function addTicketItem(name, price) {
@@ -735,6 +784,15 @@ function addTicketItem(name, price) {
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
+
+
+    const panierTransfert = JSON.parse(localStorage.getItem("panierTransfert")) || [];
+if (panierTransfert.length > 0) {
+    panierTransfert.forEach(item => {
+        // Vérifie que item.nom et item.prix existent
+        console.log(item.nom, item.prix);
+    });
+}
     // Désélectionner explicitement tous les inputs
     document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
         input.checked = false;
