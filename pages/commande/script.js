@@ -6,7 +6,8 @@ const bowls = [{
     base: [], // Changé de null à array
     protein: [], // Changé de null à array
     vegetables: [],
-    sauce: [], // Changé de null à array
+    sauce: [],
+    croutons: [], // Changé de null à array
     extras: [],
     drink:[]
 }];
@@ -114,7 +115,13 @@ function saveCurrentStep() {
             bowl.extras.push(el.value);
         });
     }
-    else if (currentSlide === 7) {
+    else if (currentSlide === 7) { // Si c'est la slide des croutons
+        bowl.croutons = [];
+        document.querySelectorAll('input[name="croutons"]:checked').forEach(el => {
+            bowl.croutons.push(el.value);
+        });
+    }
+    else if (currentSlide === 8) {
         bowl.drink = []; // Réinitialise le tableau
         document.querySelectorAll('input[name="drink"]:checked').forEach(el => {
             bowl.drink.push(el.value);
@@ -157,6 +164,11 @@ function calculateTotalPrice() {
         // Suppléments
         bowl.extras.forEach(extra => {
             total += getPrice('extras', extra);
+        });
+
+        // Croutons
+        bowl.croutons.forEach(crouton => {
+            total += getPrice('croutons', crouton);
         });
 
         // Boissons
@@ -230,6 +242,12 @@ function updateCart() {
                 addCartItem('Supplément', getLabel('extras', extra), getPrice('extras', extra), index, extra);
             });
         }
+
+        if (bowl.croutons.length > 0) {
+            bowl.croutons.forEach(crouton => {
+                addCartItem('Croutons', getLabel('croutons', crouton), getPrice('croutons', crouton), index, crouton);
+            });
+        }
         
         if (bowl.drink.length > 0) {
             bowl.drink.forEach(d => {
@@ -287,6 +305,10 @@ function removeCartItem(bowlIndex, category, value) {
         const index = bowl.extras.indexOf(value);
         if (index > -1) bowl.extras.splice(index, 1);
     }
+    else if (category === 'Croutons') {
+        const index = bowl.croutons.indexOf(value);
+        if (index > -1) bowl.croutons.splice(index, 1);
+    }
     else if (category === 'Boisson') {
         const index = bowl.drink.indexOf(value);
         if (index > -1) bowl.drink.splice(index, 1);
@@ -310,6 +332,7 @@ function isBowlEmpty(bowl) {
            bowl.vegetables.length === 0 && 
            bowl.sauce.length === 0 && 
            bowl.extras.length === 0 && 
+           bowl.croutons.length === 0 && 
            bowl.drink.length===0;
 }
 // Ajout d'un nouveau bol
@@ -424,6 +447,12 @@ function getLabel(type, value) {
             'noix_cajou': 'Noix de cajou',
             'cranberries_sechees': 'Cranberries séchées'
         },
+        croutons: {
+            'nature': 'Croutons nature',
+            'ail': 'Croutons à l\'ail',
+            'herbes': 'Croutons aux herbes',
+            'epices': 'Croutons épicés'
+        },
         drink: {
             'smoothie_banane': 'Smoothie banane',
             'smoothie_fraise': 'Smoothie fraise',
@@ -529,6 +558,12 @@ function getPrice(type, value) {
             'amandes_effilees': 5,
             'noix_cajou': 5,
             'cranberries_sechees': 5
+        },
+        croutons: {
+            'nature': 25,
+            'ail': 25,
+            'herbes': 25,
+            'epices': 25
         },
         drink: {
             'smoothie_banane': 250,
@@ -664,6 +699,13 @@ function updateTicket() {
         bowl.extras.forEach(extra => {
             addTicketItem(getLabel('extras', extra), getPrice('extras', extra));
         });
+
+        // Ajouter les croutons
+        bowl.croutons.forEach(c => {
+            addTicketItem(getLabel('croutons', c), getPrice('croutons', c));
+        });
+
+        
         
         // Ajouter les boissons
         bowl.drink.forEach(d => {
