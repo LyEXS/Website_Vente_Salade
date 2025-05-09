@@ -150,7 +150,7 @@ function afficherPanier() {
     // Add event listener to the "Commander maintenant" button
     document.getElementById("commanderBtn").addEventListener("click", () => {
         // Redirect to the payment page with the total price
-        window.location.href = `../payment/index.html?total=${totalPrice}`;
+        window.location.href = `pages/payment/payment.html?total=${totalPrice}`;
     });
 }
 
