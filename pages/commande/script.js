@@ -33,6 +33,11 @@ function nextSlide() {
         saveCurrentStep();
         showSlide(currentSlide + 1);
         updateCart();
+        // Scroll to top smoothly
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 }
 
@@ -591,7 +596,7 @@ function confirmOrder() {
     // Sauvegarder le total dans le localStorage
     localStorage.setItem('orderTotal', total);
     // OU passer dans l'URL
-    window.location.href = `../payment/index.html?total=${total}`;
+    window.location.href = `../payment/payment.html?total=${total}`;
 }
 
 function showCart() {
