@@ -489,7 +489,10 @@ function getLabel(type, value) {
             'nature': 'Croutons nature',
             'ail': 'Croutons à l\'ail',
             'herbes': 'Croutons aux herbes',
-            'epices': 'Croutons épicés'
+            'epices': 'Croutons épicés',
+            'huile' : 'Croutons à l\'huile d\'olive',
+            'beurre' : 'Croutons au beurre',
+            'sucre' : 'Croutons sucrés',
         },
         drink: {
             'smoothie_banane': 'Smoothie banane',
@@ -601,7 +604,11 @@ function getPrice(type, value) {
             'nature': 25,
             'ail': 25,
             'herbes': 25,
-            'epices': 25
+            'epices': 25,
+            'huile': 25,
+            'beurre': 25,
+            'sucre': 25,
+            
         },
         drink: {
             'smoothie_banane': 250,

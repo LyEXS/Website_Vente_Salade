@@ -20,9 +20,7 @@
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Je commande</button>
         </div>
-        <div class="step-indicators">
-            <div class="step-indicator active" onclick="showSlide(0)"></div>
-        </div>
+        
     </div>
 
     <!-- Étape 1 : Taille du bol -->
@@ -40,17 +38,7 @@
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button id="nextBtn1" disabled onclick="nextSlide()">Suivant</button>
         </div>
-        <div class="step-indicators">
-            <div class="step-indicator" onclick="showSlide(0)"></div>
-            <div class="step-indicator active" onclick="showSlide(1)"></div>
-            <div class="step-indicator" onclick="showSlide(2)"></div>
-            <div class="step-indicator" onclick="showSlide(3)"></div>
-            <div class="step-indicator" onclick="showSlide(4)"></div>
-            <div class="step-indicator" onclick="showSlide(5)"></div>
-            <div class="step-indicator" onclick="showSlide(6)"></div>
-            <div class="step-indicator" onclick="showSlide(7)"></div>
-            <div class="step-indicator" onclick="showSlide(8)"></div>
-        </div>
+      
     </div>
 
     <!-- Étape 2 : Base de salade -->
@@ -71,33 +59,23 @@
                 <label><input type="checkbox" name="base" value="riz_sauvage" onchange="enableNext(2)"> <i class="fas fa-seedling"></i> Sauvage (+30 DZD)</label>
 
                 <h3><i class="fas fa-pasta"></i> Pâtes</h3>
-                <label><input type="checkbox" name="base" value="pates_penne" onchange="enableNext(2)"> <i class="fas fa-pasta"></i> Penne (+22 DZD)</label>
-                <label><input type="checkbox" name="base" value="pates_fusilli" onchange="enableNext(2)"> <i class="fas fa-pasta"></i> Fusilli (+22 DZD)</label>
-                <label><input type="checkbox" name="base" value="pates_farfalle" onchange="enableNext(2)"> <i class="fas fa-pasta"></i> Farfalle (+22 DZD)</label>
-                <label><input type="checkbox" name="base" value="pates_orecchiette" onchange="enableNext(2)"> <i class="fas fa-pasta"></i> Orecchiette (+22 DZD)</label>
+                <label><input type="checkbox" name="base" value="pates_penne" onchange="enableNext(2)"> <i class="fas fa-bowl-food"></i> Penne (+22 DZD)</label>
+                <label><input type="checkbox" name="base" value="pates_fusilli" onchange="enableNext(2)"> <i class="fas fa-bowl-food"></i> Fusilli (+22 DZD)</label>
+                <label><input type="checkbox" name="base" value="pates_farfalle" onchange="enableNext(2)"> <i class="fas fa-bowl-food"></i> Farfalle (+22 DZD)</label>
+                <label><input type="checkbox" name="base" value="pates_orecchiette" onchange="enableNext(2)"> <i class="fas fa-bowl-food"></i> Orecchiette (+22 DZD)</label>
 
                 <h3><i class="fas fa-wheat-alt"></i> Autres bases</h3>
                 <label><input type="checkbox" name="base" value="quinoa" onchange="enableNext(2)"> <i class="fas fa-seedling"></i> Quinoa (+120 DZD)</label>
-                <label><input type="checkbox" name="base" value="boulgour" onchange="enableNext(2)"> <i class="fas fa-wheat-alt"></i> Boulgour (+45 DZD)</label>
+                <label><input type="checkbox" name="base" value="boulgour" onchange="enableNext(2)"> <i class="fas fa-wheat-awn"></i> Boulgour (+45 DZD)</label>
                 <label><input type="checkbox" name="base" value="lentilles" onchange="enableNext(2)"> <i class="fas fa-seedling"></i> Lentilles (+37 DZD)</label>
-                <label><input type="checkbox" name="base" value="couscous" onchange="enableNext(2)"> <i class="fas fa-wheat-alt"></i> Couscous perlé (+52 DZD)</label>
+                <label><input type="checkbox" name="base" value="couscous" onchange="enableNext(2)"> <i class="fas fa-wheat-awn"></i> Couscous perlé (+52 DZD)</label>
             </div>
         </div>
         <div class="nav-footer">
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button id="nextBtn2" disabled onclick="nextSlide()">Suivant</button>
         </div>
-        <div class="step-indicators">
-            <div class="step-indicator" onclick="showSlide(0)"></div>
-            <div class="step-indicator" onclick="showSlide(1)"></div>
-            <div class="step-indicator active" onclick="showSlide(2)"></div>
-            <div class="step-indicator" onclick="showSlide(3)"></div>
-            <div class="step-indicator" onclick="showSlide(4)"></div>
-            <div class="step-indicator" onclick="showSlide(5)"></div>
-            <div class="step-indicator" onclick="showSlide(6)"></div>
-            <div class="step-indicator" onclick="showSlide(7)"></div>
-            <div class="step-indicator" onclick="showSlide(8)"></div>
-        </div>
+      
     </div>
 
     <!-- Étape 3 : Protéines -->
@@ -119,17 +97,7 @@
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Suivant</button>
         </div>
-        <div class="step-indicators">
-            <div class="step-indicator" onclick="showSlide(0)"></div>
-            <div class="step-indicator" onclick="showSlide(1)"></div>
-            <div class="step-indicator" onclick="showSlide(2)"></div>
-            <div class="step-indicator active" onclick="showSlide(3)"></div>
-            <div class="step-indicator" onclick="showSlide(4)"></div>
-            <div class="step-indicator" onclick="showSlide(5)"></div>
-            <div class="step-indicator" onclick="showSlide(6)"></div>
-            <div class="step-indicator" onclick="showSlide(7)"></div>
-            <div class="step-indicator" onclick="showSlide(8)"></div>
-        </div>
+     
     </div>
 
     <!-- Étape 4 : Légumes & garnitures -->
@@ -138,20 +106,20 @@
             <h2><i class="fas fa-carrot"></i> 4. Légumes & garnitures (max 5)</h2>
             <div class="options checkboxes">
                 <h3><i class="fas fa-carrot"></i> Légumes</h3>
-                <label><input type="checkbox" name="vegetables" value="avocat"> <i class="fas fa-avocado"></i> Avocat (+120 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="concombre"> <i class="fas fa-cucumber"></i> Concombre (+8 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="avocat"> <i class="fas fa-leaf"></i> Avocat (+120 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="concombre"> <i class="fas fa-leaf"></i> Concombre (+8 DZD)</label>
                 <label><input type="checkbox" name="vegetables" value="tomates"> <i class="fas fa-apple-alt"></i> Tomates cerises (+30 DZD)</label>
                 <label><input type="checkbox" name="vegetables" value="poivrons"> <i class="fas fa-pepper-hot"></i> Poivrons (+8 DZD)</label>
                 <label><input type="checkbox" name="vegetables" value="champignons"> <i class="fas fa-mushroom"></i> Champignons (+50 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="betterave"> <i class="fas fa-root"></i> Betterave (+8 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="radis"> <i class="fas fa-radish"></i> Radis (+25 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="betterave"> <i class="fas fa-carrot"></i> Betterave (+8 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="radis"> <i class="fas fa-seedling"></i> Radis (+25 DZD)</label>
                 <label><input type="checkbox" name="vegetables" value="carottes"> <i class="fas fa-carrot"></i> Carottes râpées (+6 DZD)</label>
                 <label><input type="checkbox" name="vegetables" value="olives_noires"> <i class="fas fa-olive"></i> Olives noires (+15 DZD)</label>
                 <label><input type="checkbox" name="vegetables" value="olives_vertes"> <i class="fas fa-olive"></i> Olives vertes (+15 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="cornichons"> <i class="fas fa-cucumber"></i> Cornichons (+20 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="cornichons"> <i class="fas fa-leaf"></i> Cornichons (+20 DZD)</label>
                 <label><input type="checkbox" name="vegetables" value="mais"> <i class="fas fa-corn"></i> Maïs (+20 DZD)</label>
                 <label><input type="checkbox" name="vegetables" value="oignons"> <i class="fas fa-onion"></i> Oignons rouges (+5 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="e DZDmame"> <i class="fas fa-seedling"></i> Edamame (+8 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="edamame"> <i class="fas fa-seedling"></i> Edamame (+8 DZD)</label>
                 
                 <h3><i class="fas fa-apple-alt"></i> Fruits & fromages</h3>
                 <label><input type="checkbox" name="vegetables" value="pommes"> <i class="fas fa-apple-alt"></i> Pommes (+40 DZD)</label>
@@ -167,17 +135,7 @@
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Suivant</button>
         </div>
-        <div class="step-indicators">
-            <div class="step-indicator" onclick="showSlide(0)"></div>
-            <div class="step-indicator" onclick="showSlide(1)"></div>
-            <div class="step-indicator" onclick="showSlide(2)"></div>
-            <div class="step-indicator" onclick="showSlide(3)"></div>
-            <div class="step-indicator active" onclick="showSlide(4)"></div>
-            <div class="step-indicator" onclick="showSlide(5)"></div>
-            <div class="step-indicator" onclick="showSlide(6)"></div>
-            <div class="step-indicator" onclick="showSlide(7)"></div>
-            <div class="step-indicator" onclick="showSlide(8)"></div>
-        </div>
+ 
     </div>
 
     <!-- Étape 5 : Sauces -->
@@ -207,17 +165,7 @@
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Suivant</button>
         </div>
-        <div class="step-indicators">
-            <div class="step-indicator" onclick="showSlide(0)"></div>
-            <div class="step-indicator" onclick="showSlide(1)"></div>
-            <div class="step-indicator" onclick="showSlide(2)"></div>
-            <div class="step-indicator" onclick="showSlide(3)"></div>
-            <div class="step-indicator" onclick="showSlide(4)"></div>
-            <div class="step-indicator active" onclick="showSlide(5)"></div>
-            <div class="step-indicator" onclick="showSlide(6)"></div>
-            <div class="step-indicator" onclick="showSlide(7)"></div>
-            <div class="step-indicator" onclick="showSlide(8)"></div>
-        </div>
+        
     </div>
 
     <!-- Étape 6 : Suppléments -->
@@ -227,34 +175,24 @@
             <div class="options checkboxes">
                 <h3><i class="fas fa-seedling"></i> Graines (+5 DZD)</h3>
                 <label><input type="checkbox" name="extras" value="graines_sesame"> <i class="fas fa-seedling"></i> Graines de sésame </label>
-                <label><input type="checkbox" name="extras" value="graines_chia"> <i class="fas fa-seedling"></i> Graines de chia </label>
-                <label><input type="checkbox" name="extras" value="graines_tournesol"> <i class="fas fa-seedling"></i> Graines de tournesol </label>
+                <label><input type="checkbox" name="extras" value="graines_chia"> <i class="fas fa-leaf"></i> Graines de chia </label>
+                <label><input type="checkbox" name="extras" value="graines_tournesol"> <i class="fas fa-sun"></i> Graines de tournesol </label>
                 <label><input type="checkbox" name="extras" value="graines_courge"> <i class="fas fa-seedling"></i> Graines de courge </label>
-                <label><input type="checkbox" name="extras" value="lin"> <i class="fas fa-seedling"></i> Lin</label>
-                <label><input type="checkbox" name="extras" value="pavot"> <i class="fas fa-seedling"></i> Pavot</label>
+                <label><input type="checkbox" name="extras" value="lin"> <i class="fas fa-leaf"></i> Lin</label>
+                <label><input type="checkbox" name="extras" value="pavot"> <i class="fas fa-dot-circle"></i> Pavot</label>
                 
                 <h3><i class="fas fa-acorn"></i> Fruits secs & autres </h3>
-                <label><input type="checkbox" name="extras" value="noix_concasees"> <i class="fas fa-nut"></i> Noix concassées (+75 DZD)</label>
-                <label><input type="checkbox" name="extras" value="amandes_effilees"> <i class="fas fa-nut"></i> Amandes effilées (+60 DZD) </label>
-                <label><input type="checkbox" name="extras" value="noix_cajou"> <i class="fas fa-nut"></i> Noix de cajou (+75 DZD)</label>
-                <label><input type="checkbox" name="extras" value="cranberries_sechees"> <i class="fas fa-berry"></i> Cranberries séchées (+80 DZD)</label>
+                <label><input type="checkbox" name="extras" value="noix_concasees"> <i class="fas fa-acorn"></i> Noix concassées</label>
+                <label><input type="checkbox" name="extras" value="amandes_effilees"> <i class="fas fa-seedling"></i> Amandes effilées</label>
+                <label><input type="checkbox" name="extras" value="noix_cajou"> <i class="fas fa-acorn"></i> Noix de cajou</label>
+                <label><input type="checkbox" name="extras" value="cranberries_sechees"> <i class="fas fa-berry"></i> Cranberries séchées</label>
             </div>
         </div>
         <div class="nav-footer">
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Suivant</button>
         </div>
-        <div class="step-indicators">
-            <div class="step-indicator" onclick="showSlide(0)"></div>
-            <div class="step-indicator" onclick="showSlide(1)"></div>
-            <div class="step-indicator" onclick="showSlide(2)"></div>
-            <div class="step-indicator" onclick="showSlide(3)"></div>
-            <div class="step-indicator" onclick="showSlide(4)"></div>
-            <div class="step-indicator active" onclick="showSlide(5)"></div>
-            <div class="step-indicator " onclick="showSlide(6)"></div>
-            <div class="step-indicator" onclick="showSlide(7)"></div>
-            <div class="step-indicator" onclick="showSlide(8)"></div>
-        </div>
+    
     </div>
 
     <!-- Étape 7 : Croûtons -->
@@ -263,31 +201,20 @@
             <h2><i class="fas fa-bread-slice"></i> 7. Choix de croûtons</h2>
             <div class="options checkboxes">
                 <h3><i class="fas fa-bread-slice"></i> Croûtons(x5) (+25 DZD)</h3>
-                <label><input type="checkbox" name="croutons" value="ail"> Croûtons à l’ail</label>
-                <label><input type="checkbox" name="croutons" value="herbes"> Croûtons aux herbes (thym, romarin, basilic…)</label>
-                <label><input type="checkbox" name="croutons" value="fromage"> Croûtons au fromage (parmesan, gruyère…) </label>
-                <label><input type="checkbox" name="croutons" value="epices"> Croûtons épicés (paprika, piment, curry…) </label>
-                <label><input type="checkbox" name="croutons" value="beurre"> Croûtons au beurre </label>
-                <label><input type="checkbox" name="croutons" value="huile_olive"> Croûtons à l’huile d’olive</label>
-                <label><input type="checkbox" name="croutons" value="sucre"> Croûtons sucrés (cannelle, sucre, vanille…)</label>
+                <label><input type="checkbox" name="croutons" value="ail"> <i class="fas fa-bread-slice"></i> Croûtons à l’ail</label>
+                <label><input type="checkbox" name="croutons" value="herbes"> <i class="fas fa-bread-slice"></i> Croûtons aux herbes (thym, romarin, basilic…)</label>
+                <label><input type="checkbox" name="croutons" value="fromage"> <i class="fas fa-bread-slice"></i> Croûtons au fromage (parmesan, gruyère…)</label>
+                <label><input type="checkbox" name="croutons" value="epices"> <i class="fas fa-bread-slice"></i> Croûtons épicés (paprika, piment, curry…)</label>
+                <label><input type="checkbox" name="croutons" value="beurre"> <i class="fas fa-bread-slice"></i> Croûtons au beurre</label>
+                <label><input type="checkbox" name="croutons" value="huile"> <i class="fas fa-bread-slice"></i> Croûtons à l’huile d’olive</label>
+                <label><input type="checkbox" name="croutons" value="sucre"> <i class="fas fa-bread-slice"></i> Croûtons sucrés (cannelle, sucre, vanille…)</label>
             </div>
         </div>
         <div class="nav-footer">
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Suivant</button>
         </div>
-        <div class="step-indicators">
-            <!-- Ajoute un indicateur pour cette étape -->
-            <div class="step-indicator" onclick="showSlide(0)"></div>
-            <div class="step-indicator" onclick="showSlide(1)"></div>
-            <div class="step-indicator" onclick="showSlide(2)"></div>
-            <div class="step-indicator" onclick="showSlide(3)"></div>
-            <div class="step-indicator" onclick="showSlide(4)"></div>
-            <div class="step-indicator" onclick="showSlide(5)"></div>
-            <div class="step-indicator " onclick="showSlide(6)"></div>
-            <div class="step-indicator active" onclick="showSlide(7)"></div>
-            <div class="step-indicator" onclick="showSlide(8)"></div>
-        </div>
+     
     </div>
 
     <!-- Étape 8 : Boissons -->
@@ -320,16 +247,7 @@
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Voir mon panier</button>
         </div>
-        <div class="step-indicators">
-            <div class="step-indicator" onclick="showSlide(0)"></div>
-            <div class="step-indicator" onclick="showSlide(1)"></div>
-            <div class="step-indicator" onclick="showSlide(2)"></div>
-            <div class="step-indicator" onclick="showSlide(3)"></div>
-            <div class="step-indicator" onclick="showSlide(4)"></div>
-            <div class="step-indicator" onclick="showSlide(5)"></div>
-            <div class="step-indicator" onclick="showSlide(6)"></div>
-            <div class="step-indicator active" onclick="showSlide(7)"></div>
-        </div>
+   
     </div>
 
     <!-- Panier -->
@@ -382,6 +300,18 @@
             <span>Total:</span>
             <span id="ticketTotal">0  DZD</span>
         </div>
+    </div>
+
+    <div class="step-indicators">
+        <div class="step-indicator" onclick="showSlide(0)"></div>
+        <div class="step-indicator" onclick="showSlide(1)"></div>
+        <div class="step-indicator" onclick="showSlide(2)"></div>
+        <div class="step-indicator" onclick="showSlide(3)"></div>
+        <div class="step-indicator" onclick="showSlide(4)"></div>
+        <div class="step-indicator active" onclick="showSlide(5)"></div>
+        <div class="step-indicator" onclick="showSlide(6)"></div>
+        <div class="step-indicator" onclick="showSlide(7)"></div>
+        <div class="step-indicator" onclick="showSlide(8)"></div>
     </div>
 
     <script src="script.js" defer></script>
