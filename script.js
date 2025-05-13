@@ -45,6 +45,9 @@ function showDetails(saladeId) {
 
         // Afficher la modal
         document.getElementById('salade-modal').style.display = 'block';
+        document.getElementById('salade-modal').style.display = 'flex';
+         document.body.classList.add('modal-open');
+         
     } catch (error) {
         console.error("Erreur dans showDetails:", error);
     }
@@ -53,6 +56,8 @@ function showDetails(saladeId) {
 // Fonction pour fermer la modal des salades
 function closeSaladeModal() {
     document.getElementById('salade-modal').style.display = 'none';
+      document.getElementById('salade-modal').style.display = 'none';
+    document.body.classList.remove('modal-open');
 }
 
 // Fonction pour ouvrir la modal de commande

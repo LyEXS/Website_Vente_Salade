@@ -187,7 +187,7 @@ function calculateTotalPrice() {
 // Affichage dynamique du prix
 function updateLivePrice() {
     const total = calculateTotalPrice();
-    document.getElementById('livePrice').textContent = total + ' DZD';
+   
 }
 
 // Mise à jour du panier
@@ -632,9 +632,21 @@ function getPrice(type, value) {
 
 // Confirmation de commande
 function confirmOrder() {
-    const total = calculateTotalPrice();
+      let total = calculateTotalPrice();
+    
+    // Récupérer le total des salades transférées depuis le localStorage
+    const panierTransfert = JSON.parse(localStorage.getItem("panierTransfert")) || [];
+    let totalTransfert = 0;
+    panierTransfert.forEach(item => {
+        totalTransfert += item.prix;
+    });
+    
+    // Ajouter le total des salades transférées au total général
+    total += totalTransfert;
+
     // Sauvegarder le total dans le localStorage
     localStorage.setItem('orderTotal', total);
+    
     // OU passer dans l'URL
     window.location.href = `../payment/payment.html?total=${total}`;
 }

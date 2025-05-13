@@ -174,34 +174,7 @@ button:disabled {
     line-height: 1.6;
 }
 
-/* Nouveau design pour le prix dynamique */
-#livePriceContainer {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #CB593F;
-    color: #FEF3D6;
-    padding: 15px 25px;
-    border-radius: 50px;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transform: scale(1);
-    transition: all 0.3s;
-}
 
-#livePriceContainer:hover {
-    transform: scale(1.05);
-    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25);
-}
-
-#livePrice {
-    font-size: 1.3em;
-    font-weight: bold;
-}
 
 /* Panier */
 #cart {
