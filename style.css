@@ -620,6 +620,18 @@ body {
     background: #002C26;
 }
 
+
+@media (max-width: 768px) {
+    #salade-modal .modal-content {
+        width: 90%; /* Make the modal take up 90% of the screen width */
+        margin: 20% auto; /* Adjust the margin to center it and provide space */
+    }
+
+    #salade-modal {
+        transform: translateY(-10%); /* Adjust the vertical positioning */
+    }
+}
+
 .btn-ajouter-panier {
     display: block; /* Make it a block element */
     margin: 15px auto; /* Center horizontally */
