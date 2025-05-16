@@ -823,3 +823,4 @@ if (panierTransfert.length > 0) {
     document.getElementById('nextBtn2').disabled = true;
     updateTicket();
 });
+

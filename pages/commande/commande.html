@@ -5,249 +5,238 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salades Perso</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <link rel="stylesheet" href="style.css">
-        
-        
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Page d'accueil -->
     <div id="home" class="slide active">
         <div class="container">
-            <h1><i class="fas fa-leaf"></i> Salades Perso</h1>
+            <h1><img src="../../images/images_ingredients/BOL__S-L-XL-XXL_-removebg-preview.png" alt="Bol" class="item-icon"> Salades Perso</h1>
             <p>Créez votre salade sur-mesure en 7 étapes !</p>
         </div>
         <div class="nav-footer">
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Je commande</button>
         </div>
-        
     </div>
 
     <!-- Étape 1 : Taille du bol -->
     <div id="step1" class="slide">
         <div class="container">
-            <h2><i class="fas fa-utensils"></i> 1. Choisissez votre bol <span class="required">*</span></h2>
+            <h2><img src="../../images/images_ingredients/BOL__S-L-XL-XXL_-removebg-preview.png" alt="Bol" class="item-icon"> 1. Choisissez votre bol <span class="required">*</span></h2>
             <div class="options required-options">
-                <label><input type="radio" name="size" value="S" required onchange="enableNext(1)"> <i class="fas fa-utensils"></i> Small (S) - 5 DZD</label>
-                <label><input type="radio" name="size" value="L" onchange="enableNext(1)"> <i class="fas fa-utensils"></i> Large (L) - 7 DZD</label>
-                <label><input type="radio" name="size" value="XL" onchange="enableNext(1)"> <i class="fas fa-utensils"></i> XL - 9 DZD</label>
-                <label><input type="radio" name="size" value="XXL" onchange="enableNext(1)"> <i class="fas fa-utensils"></i> XXL - 12 DZD</label>
+                <label><input type="radio" name="size" value="S" required onchange="enableNext(1)"> <img src="../../images/images_ingredients/BOL__S-L-XL-XXL_-removebg-preview.png" alt="Small" class="item-icon"> Small (S) - 5 DZD</label>
+                <label><input type="radio" name="size" value="L" onchange="enableNext(1)"> <img src="../../images/images_ingredients/BOL__S-L-XL-XXL_-removebg-preview.png" alt="Large" class="item-icon"> Large (L) - 7 DZD</label>
+                <label><input type="radio" name="size" value="XL" onchange="enableNext(1)"> <img src="../../images/images_ingredients/BOL__S-L-XL-XXL_-removebg-preview.png" alt="XL" class="item-icon"> XL - 9 DZD</label>
+                <label><input type="radio" name="size" value="XXL" onchange="enableNext(1)"> <img src="../../images/images_ingredients/BOL__S-L-XL-XXL_-removebg-preview.png" alt="XXL" class="item-icon"> XXL - 12 DZD</label>
             </div>
         </div>
         <div class="nav-footer">
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button id="nextBtn1" disabled onclick="nextSlide()">Suivant</button>
         </div>
-      
     </div>
 
     <!-- Étape 2 : Base de salade -->
     <div id="step2" class="slide">
         <div class="container">
-            <h2><i class="fas fa-seedling"></i> 2. Base de salade <span class="required">*</span></h2>
+            <h2><img src="../../images/images_ingredients/Laitue-removebg-preview.png" alt="Base" class="item-icon"> 2. Base de salade <span class="required">*</span></h2>
             <div class="options required-options">
-                <h3><i class="fas fa-leaf"></i> Salades vertes</h3>
-                <label><input type="checkbox" name="base" value="salade_laitue" onchange="enableNext(2)"> <i class="fas fa-leaf"></i> Laitue (+18 DZD)</label>
-                <label><input type="checkbox" name="base" value="salade_roquette" onchange="enableNext(2)"> <i class="fas fa-leaf"></i> Roquette (+18 DZD)</label>
-                <label><input type="checkbox" name="base" value="salade_epinards" onchange="enableNext(2)"> <i class="fas fa-leaf"></i> Épinards (+18 DZD)</label>
-                <label><input type="checkbox" name="base" value="salade_mesclun" onchange="enableNext(2)"> <i class="fas fa-leaf"></i> Mesclun (+18 DZD)</label>
+                <h3><img src="../../images/images_ingredients/Laitue-removebg-preview.png" alt="Salade" class="item-icon"> Salades vertes</h3>
+                <label><input type="checkbox" name="base" value="salade_laitue" onchange="enableNext(2)"> <img src="../../images/images_ingredients/Laitue-removebg-preview.png" alt="Laitue" class="item-icon"> Laitue (+18 DZD)</label>
+                <label><input type="checkbox" name="base" value="salade_roquette" onchange="enableNext(2)"> <img src="../../images/images_ingredients/Roquette-removebg-preview.png" alt="Roquette" class="item-icon"> Roquette (+18 DZD)</label>
+                <label><input type="checkbox" name="base" value="salade_epinards" onchange="enableNext(2)"> <img src="../../images/images_ingredients/épinards_.png" alt="Épinards" class="item-icon"> Épinards (+18 DZD)</label>
+                <label><input type="checkbox" name="base" value="salade_mesclun" onchange="enableNext(2)"> <img src="../../images/images_ingredients/mesclun.png" alt="Mesclun" class="item-icon"> Mesclun (+18 DZD)</label>
 
-                <h3><i class="fas fa-seedling"></i> Riz</h3>
-                <label><input type="checkbox" name="base" value="riz_blanc" onchange="enableNext(2)"> <i class="fas fa-seedling"></i> Blanc (+30 DZD)</label>
-                <label><input type="checkbox" name="base" value="riz_complet" onchange="enableNext(2)"> <i class="fas fa-seedling"></i> Complet (+30 DZD)</label>
-                <label><input type="checkbox" name="base" value="riz_basmati" onchange="enableNext(2)"> <i class="fas fa-seedling"></i> Basmati (+30 DZD)</label>
-                <label><input type="checkbox" name="base" value="riz_sauvage" onchange="enableNext(2)"> <i class="fas fa-seedling"></i> Sauvage (+30 DZD)</label>
+                <h3><img src="../../images/images_ingredients/riz blanc.png" alt="Riz" class="item-icon"> Riz</h3>
+                <label><input type="checkbox" name="base" value="riz_blanc" onchange="enableNext(2)"> <img src="../../images/images_ingredients/riz blanc.png" alt="Riz blanc" class="item-icon"> Blanc (+30 DZD)</label>
+                <label><input type="checkbox" name="base" value="riz_complet" onchange="enableNext(2)"> <img src="../../images/images_ingredients/Riz complet_.png" alt="Riz complet" class="item-icon"> Complet (+30 DZD)</label>
+                <label><input type="checkbox" name="base" value="riz_basmati" onchange="enableNext(2)"> <img src="../../images/images_ingredients/basmati.png" alt="Riz basmati" class="item-icon"> Basmati (+30 DZD)</label>
+                <label><input type="checkbox" name="base" value="riz_sauvage" onchange="enableNext(2)"> <img src="../../images/images_ingredients/riz sauvage.png" alt="Riz sauvage" class="item-icon"> Sauvage (+30 DZD)</label>
 
-                <h3><i class="fas fa-pasta"></i> Pâtes</h3>
-                <label><input type="checkbox" name="base" value="pates_penne" onchange="enableNext(2)"> <i class="fas fa-bowl-food"></i> Penne (+22 DZD)</label>
-                <label><input type="checkbox" name="base" value="pates_fusilli" onchange="enableNext(2)"> <i class="fas fa-bowl-food"></i> Fusilli (+22 DZD)</label>
-                <label><input type="checkbox" name="base" value="pates_farfalle" onchange="enableNext(2)"> <i class="fas fa-bowl-food"></i> Farfalle (+22 DZD)</label>
-                <label><input type="checkbox" name="base" value="pates_orecchiette" onchange="enableNext(2)"> <i class="fas fa-bowl-food"></i> Orecchiette (+22 DZD)</label>
+                <h3><img src="../../images/images_ingredients/penne.png" alt="Pâtes" class="item-icon"> Pâtes</h3>
+                <label><input type="checkbox" name="base" value="pates_penne" onchange="enableNext(2)"> <img src="../../images/images_ingredients/penne.png" alt="Penne" class="item-icon"> Penne (+22 DZD)</label>
+                <label><input type="checkbox" name="base" value="pates_fusilli" onchange="enableNext(2)"> <img src="../../images/images_ingredients/fusili.png" alt="Fusilli" class="item-icon"> Fusilli (+22 DZD)</label>
+                <label><input type="checkbox" name="base" value="pates_farfalle" onchange="enableNext(2)"> <img src="../../images/images_ingredients/farfalle.png" alt="Farfalle" class="item-icon"> Farfalle (+22 DZD)</label>
+                <label><input type="checkbox" name="base" value="pates_orecchiette" onchange="enableNext(2)"> <img src="../../images/images_ingredients/orecchiette.png" alt="Orecchiette" class="item-icon"> Orecchiette (+22 DZD)</label>
 
-                <h3><i class="fas fa-wheat-alt"></i> Autres bases</h3>
-                <label><input type="checkbox" name="base" value="quinoa" onchange="enableNext(2)"> <i class="fas fa-seedling"></i> Quinoa (+120 DZD)</label>
-                <label><input type="checkbox" name="base" value="boulgour" onchange="enableNext(2)"> <i class="fas fa-wheat-awn"></i> Boulgour (+45 DZD)</label>
-                <label><input type="checkbox" name="base" value="lentilles" onchange="enableNext(2)"> <i class="fas fa-seedling"></i> Lentilles (+37 DZD)</label>
-                <label><input type="checkbox" name="base" value="couscous" onchange="enableNext(2)"> <i class="fas fa-wheat-awn"></i> Couscous perlé (+52 DZD)</label>
+                <h3><img src="../../images/images_ingredients/Quinoa-removebg-preview (1).png" alt="Autres" class="item-icon scale-image"> Autres bases</h3>
+                <label><input type="checkbox" name="base" value="quinoa" onchange="enableNext(2)"> <img src="../../images/images_ingredients/Quinoa-removebg-preview (1).png" alt="Quinoa" class="item-icon scale-image"> Quinoa (+120 DZD)</label>
+                <label><input type="checkbox" name="base" value="boulgour" onchange="enableNext(2)"> <img src="../../images/images_ingredients/Boulgour-removebg-preview (1).png" alt="Boulgour" class="item-icon scale-image"> Boulgour (+45 DZD)</label>
+                <label><input type="checkbox" name="base" value="lentilles" onchange="enableNext(2)"> <img src="../../images/images_ingredients/Lentilles-removebg-preview (1).png" alt="Lentilles" class="item-icon scale-image"> Lentilles (+37 DZD)</label>
+                <label><input type="checkbox" name="base" value="couscous" onchange="enableNext(2)"> <img src="../../images/images_ingredients/Couscous_perlé_-removebg-preview (1).png" alt="Couscous" class=" item-icon scale-image"> Couscous perlé (+52 DZD)</label>
             </div>
         </div>
         <div class="nav-footer">
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button id="nextBtn2" disabled onclick="nextSlide()">Suivant</button>
         </div>
-      
     </div>
 
     <!-- Étape 3 : Protéines -->
     <div id="step3" class="slide">
         <div class="container">
-            <h2><i class="fas fa-drumstick-bite"></i> 3. Protéines</h2>
+            <h2><img src="../../images/images_ingredients/Poulet_grillé_-removebg-preview (1).png" alt="Protéines" class="item-icon scale-image"> 3. Protéines</h2>
             <div class="options">
-                <label><input type="checkbox" name="protein" value="poulet_grille" onchange="saveCurrentStep()"> <i class="fa-solid fa-drumstick-bite"></i> Poulet grillé (+90 DZD)</label>
-                <label><input type="checkbox" name="protein" value="poulet_crispy" onchange="saveCurrentStep()"> <i class="fa-solid fa-drumstick-bite"></i> Poulet crispy (+3.5 DZD)</label>
-                <label><input type="checkbox" name="protein" value="boeuf" onchange="saveCurrentStep()"> <i class="fas fa-hamburger"></i> Bœuf mariné (+210 DZD)</label>
-                <label><input type="checkbox" name="protein" value="saumon" onchange="saveCurrentStep()"> <i class="fas fa-fish"></i> Saumon fumé (+300 DZD)</label>
-                <label><input type="checkbox" name="protein" value="crevettes" onchange="saveCurrentStep()"> <i class="fas fa-shrimp"></i> Crevettes (+300 DZD)</label>
-                <label><input type="checkbox" name="protein" value="tofu" onchange="saveCurrentStep()"> <i class="fas fa-seedling"></i> Tofu (+180 DZD)</label>
-                <label><input type="checkbox" name="protein" value="falafel" onchange="saveCurrentStep()"> <i class="fas fa-seedling"></i> Falafel (+100 DZD)</label>
-                <label><input type="checkbox" name="protein" value="oeufs" onchange="saveCurrentStep()"> <i class="fas fa-egg"></i> Œufs durs (+15 DZD)</label>
+                <label><input type="checkbox" name="protein" value="poulet_grille" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Poulet_grillé_-removebg-preview (1).png" alt="Poulet grillé" class="item-icon"> Poulet grillé (+90 DZD)</label>
+                <label><input type="checkbox" name="protein" value="poulet_crispy" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Poulet_crispy-removebg-preview (1).png" alt="Poulet crispy" class="item-icon scale-image"> Poulet crispy (+3.5 DZD)</label>
+                <label><input type="checkbox" name="protein" value="boeuf" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/bœuf mariné_.png" alt="Bœuf" class="item-icon"> Bœuf mariné (+210 DZD)</label>
+                <label><input type="checkbox" name="protein" value="saumon" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Saumon_fumé_-removebg-preview (1).png" alt="Saumon" class="item-icon scale-image"> Saumon fumé (+300 DZD)</label>
+                <label><input type="checkbox" name="protein" value="crevettes" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Crevettes_-removebg-preview (1).png" alt="Crevettes" class="item-icon scale-image"> Crevettes (+300 DZD)</label>
+                <label><input type="checkbox" name="protein" value="tofu" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Tofu_-removebg-preview (1).png" alt="Tofu" class="item-icon scale-image"> Tofu (+180 DZD)</label>
+                <label><input type="checkbox" name="protein" value="falafel" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Falafel-removebg-preview (1).png" alt="Falafel" class="item-icon"> Falafel (+100 DZD)</label>
+                <label><input type="checkbox" name="protein" value="oeufs" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Oeuf_dur-removebg-preview (1).png" alt="Œufs" class="item-icon scale-image"> Œufs durs (+15 DZD)</label>
             </div>
         </div>
         <div class="nav-footer">
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Suivant</button>
         </div>
-     
     </div>
 
     <!-- Étape 4 : Légumes & garnitures -->
     <div id="step4" class="slide">
         <div class="container">
-            <h2><i class="fas fa-carrot"></i> 4. Légumes & garnitures (max 5)</h2>
+            <h2><img src="../../images/images_ingredients/Avocat .png" alt="Légumes" class="item-icon"> 4. Légumes & garnitures (max 5)</h2>
             <div class="options checkboxes">
-                <h3><i class="fas fa-carrot"></i> Légumes</h3>
-                <label><input type="checkbox" name="vegetables" value="avocat"> <i class="fas fa-leaf"></i> Avocat (+120 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="concombre"> <i class="fas fa-leaf"></i> Concombre (+8 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="tomates"> <i class="fas fa-apple-alt"></i> Tomates cerises (+30 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="poivrons"> <i class="fas fa-pepper-hot"></i> Poivrons (+8 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="champignons"> <i class="fas fa-mushroom"></i> Champignons (+50 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="betterave"> <i class="fas fa-carrot"></i> Betterave (+8 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="radis"> <i class="fas fa-seedling"></i> Radis (+25 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="carottes"> <i class="fas fa-carrot"></i> Carottes râpées (+6 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="olives_noires"> <i class="fas fa-olive"></i> Olives noires (+15 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="olives_vertes"> <i class="fas fa-olive"></i> Olives vertes (+15 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="cornichons"> <i class="fas fa-leaf"></i> Cornichons (+20 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="mais"> <i class="fas fa-corn"></i> Maïs (+20 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="oignons"> <i class="fas fa-onion"></i> Oignons rouges (+5 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="edamame"> <i class="fas fa-seedling"></i> Edamame (+8 DZD)</label>
+                <h3><img src="../../images/images_ingredients/Avocat .png" alt="Légumes" class="item-icon"> Légumes</h3>
+                <label><input type="checkbox" name="vegetables" value="avocat"> <img src="../../images/images_ingredients/Avocat .png" alt="Avocat" class="item-icon scale-image"> Avocat (+120 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="concombre"> <img src="../../images/images_ingredients/Concombres .png" alt="Concombre" class="item-icon scale-image"> Concombre (+8 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="tomates"> <img src="../../images/images_ingredients/Tomates cerises .png" alt="Tomates" class="item-icon scale-image"> Tomates cerises (+30 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="poivrons"> <img src="../../images/images_ingredients/Poivrons .png" alt="Poivrons" class="item-icon scale-image"> Poivrons (+8 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="champignons"> <img src="../../images/images_ingredients/Champignons .png" alt="Champignons" class="item-icon scale-image"> Champignons (+50 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="betterave"> <img src="../../images/images_ingredients/Carottes râpées .png" alt="Betterave" class="item-icon scale-image"> Betterave (+8 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="radis"> <img src="../../images/images_ingredients/Radis.png" alt="Radis" class="item-icon scale-image"> Radis (+25 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="carottes"> <img src="../../images/images_ingredients/Carottes râpées .png" alt="Carottes" class="item-icon scale-image"> Carottes râpées (+6 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="olives_noires"> <img src="../../images/images_ingredients/Olives noires .png" alt="Olives noires" class="item-icon scale-image"> Olives noires (+15 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="olives_vertes"> <img src="../../images/images_ingredients/Olives vertes.png" alt="Olives vertes" class="item-icon"> Olives vertes (+15 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="cornichons"> <img src="../../images/images_ingredients/Cornichons .png" alt="Cornichons" class="item-icon scale-image"> Cornichons (+20 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="mais"> <img src="../../images/images_ingredients/maïs_.png" alt="Maïs" class="item-icon scale-image"> Maïs (+20 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="oignons"> <img src="../../images/images_ingredients/Ognions rouges .png" alt="Oignons" class="item-icon "> Oignons rouges (+5 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="edamame"> <img src="../../images/images_ingredients/edamame.png" alt="Edamame" class="item-icon"> Edamame (+8 DZD)</label>
                 
-                <h3><i class="fas fa-apple-alt"></i> Fruits & fromages</h3>
-                <label><input type="checkbox" name="vegetables" value="pommes"> <i class="fas fa-apple-alt"></i> Pommes (+40 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="raisins"> <i class="fas fa-grapes"></i> Raisins secs (+40 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="noix"> <i class="fas fa-nut"></i> Noix (+50 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="fromage_rape"> <i class="fas fa-cheese"></i> Fromage râpé (+75 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="feta"> <i class="fas fa-cheese"></i> Feta (+100 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="mozzarella"> <i class="fas fa-cheese"></i> Mozzarella (+110 DZD)</label>
-                <label><input type="checkbox" name="vegetables" value="parmesan"> <i class="fas fa-cheese"></i> Parmesan (+125 DZD)</label>
+                <h3><img src="../../images/images_ingredients/Pomme.png" alt="Fruits" class="item-icon"> Fruits & fromages</h3>
+                <label><input type="checkbox" name="vegetables" value="pommes"> <img src="../../images/images_ingredients/Pomme.png" alt="Pommes" class="item-icon"> Pommes (+40 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="raisins"> <img src="../../images/images_ingredients/Raisins secs.png" alt="Raisins" class="item-icon scale-image"> Raisins secs (+40 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="noix"> <img src="../../images/images_ingredients/Noix concassées .png" alt="Noix" class="item-icon scale-image"> Noix (+50 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="fromage_rape"> <img src="../../images/images_ingredients/fromage râpé_.png" alt="Fromage râpé" class="item-icon scale-image"> Fromage râpé (+75 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="feta"> <img src="../../images/images_ingredients/fêta_.png" alt="Feta" class="item-icon scale-image"> Feta (+100 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="mozzarella"> <img src="../../images/images_ingredients/mozarella_.png" alt="Mozzarella" class="item-icon "> Mozzarella (+110 DZD)</label>
+                <label><input type="checkbox" name="vegetables" value="parmesan"> <img src="../../images/images_ingredients/Parmesan_.png" alt="Parmesan" class="item-icon"> Parmesan (+125 DZD)</label>
             </div>
         </div>
         <div class="nav-footer">
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Suivant</button>
         </div>
- 
     </div>
 
     <!-- Étape 5 : Sauces -->
     <div id="step5" class="slide">
         <div class="container">
-            <h2><i class="fas fa-tint"></i> 5. Choix de la sauce</h2>
+            <h2><img src="../../images/images_ingredients/Sauce algérienne .png" alt="Sauces" class="item-icon"> 5. Choix de la sauce</h2>
             <div class="options">
-                <h3><i class="fas fa-tint"></i> Sauces classiques</h3>
-                <label><input type="checkbox" name="sauce" value="mayonnaise" onchange="saveCurrentStep()"> <i class="fas fa-tint"></i> Mayonnaise (+15 DZD)</label>
-                <label><input type="checkbox" name="sauce" value="ketchup" onchange="saveCurrentStep()"> <i class="fas fa-tint"></i> Ketchup (+15 DZD)</label>
-                <label><input type="checkbox" name="sauce" value="moutarde" onchange="saveCurrentStep()"> <i class="fas fa-tint"></i> Moutarde (+15 DZD)</label>
-                <label><input type="checkbox" name="sauce" value="algerienne" onchange="saveCurrentStep()"> <i class="fas fa-tint"></i> Sauce algérienne (+15 DZD)</label>
-                <label><input type="checkbox" name="sauce" value="barbecue" onchange="saveCurrentStep()"> <i class="fas fa-tint"></i> Sauce barbecue (+15 DZD)</label>
+                <h3><img src="../../images/images_ingredients/Mayonnaise .png" alt="Classiques" class="item-icon"> Sauces classiques</h3>
+                <label><input type="checkbox" name="sauce" value="mayonnaise" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Mayonnaise .png" alt="Mayonnaise" class="item-icon scale-image"> Mayonnaise (+15 DZD)</label>
+                <label><input type="checkbox" name="sauce" value="ketchup" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Ketchup .png" alt="Ketchup" class="item-icon scale-image"> Ketchup (+15 DZD)</label>
+                <label><input type="checkbox" name="sauce" value="moutarde" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/moutarde_.png" alt="Moutarde" class="item-icon scale-image"> Moutarde (+15 DZD)</label>
+                <label><input type="checkbox" name="sauce" value="algerienne" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Sauce algérienne .png" alt="Algérienne" class="item-icon scale-image  "> Sauce algérienne (+15 DZD)</label>
+                <label><input type="checkbox" name="sauce" value="barbecue" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Sauce barbecue .png" alt="Barbecue" class="item-icon"> Sauce barbecue (+15 DZD)</label>
 
-                <h3><i class="fas fa-mortar-pestle"></i> Sauces spéciales</h3>
-                <label><input type="checkbox" name="sauce" value="pesto" onchange="saveCurrentStep()"> <i class="fas fa-mortar-pestle"></i> Pesto (+25 DZD)</label>
-                <label><input type="checkbox" name="sauce" value="fromagere" onchange="saveCurrentStep()"> <i class="fas fa-cheese"></i> Sauce fromagère (+25 DZD)</label>
-                <label><input type="checkbox" name="sauce" value="yaourt_citron" onchange="saveCurrentStep()"> <i class="fas fa-tint"></i> Sauce yaourt-citron (+20 DZD)</label>
-                <label><input type="checkbox" name="sauce" value="cesar" onchange="saveCurrentStep()"> <i class="fas fa-tint"></i> Sauce césar (+25 DZD)</label>
-                <label><input type="checkbox" name="sauce" value="balsamique" onchange="saveCurrentStep()"> <i class="fas fa-tint"></i> Vinaigrette balsamique (+20 DZD)</label>
-                <label><input type="checkbox" name="sauce" value="miel_moutarde" onchange="saveCurrentStep()"> <i class="fas fa-tint"></i> Sauce miel-moutarde (+25 DZD)</label>
-                <label><input type="checkbox" name="sauce" value="sesame" onchange="saveCurrentStep()"> <i class="fas fa-seedling"></i> Sauce sésame (+25 DZD)</label>
-                <label><input type="checkbox" name="sauce" value="ranch" onchange="saveCurrentStep()"> <i class="fas fa-tint"></i> Sauce ranch (+25 DZD)</label>
+                <h3><img src="../../images/images_ingredients/Pesto .png" alt="Spéciales" class="item-icon"> Sauces spéciales</h3>
+                <label><input type="checkbox" name="sauce" value="pesto" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Pesto .png" alt="Pesto" class="item-icon"> Pesto (+25 DZD)</label>
+                <label><input type="checkbox" name="sauce" value="fromagere" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Sauce fromagère .png" alt="Fromagère" class="item-icon scale-image"> Sauce fromagère (+25 DZD)</label>
+                <label><input type="checkbox" name="sauce" value="yaourt_citron" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Yaourt citron .png" alt="Yaourt-citron" class="item-icon scale-image"> Sauce yaourt-citron (+20 DZD)</label>
+                <label><input type="checkbox" name="sauce" value="cesar" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Sauce cesar .png" alt="César" class="item-icon"> Sauce césar (+25 DZD)</label>
+                <label><input type="checkbox" name="sauce" value="balsamique" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/sauce balsamique_.png" alt="Balsamique" class="item-icon scale-image"> Vinaigrette balsamique (+20 DZD)</label>
+                <label><input type="checkbox" name="sauce" value="miel_moutarde" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Sauce miel moutarde .png" alt="Miel-moutarde" class="item-icon scale-image"> Sauce miel-moutarde (+25 DZD)</label>
+                <label><input type="checkbox" name="sauce" value="sesame" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Sauce sésame .png" alt="Sésame" class="item-icon scale-image"> Sauce sésame (+25 DZD)</label>
+                <label><input type="checkbox" name="sauce" value="ranch" onchange="saveCurrentStep()"> <img src="../../images/images_ingredients/Ranch.png" alt="Ranch" class="item-icon scale-image"> Sauce ranch (+25 DZD)</label>
             </div>
         </div>
         <div class="nav-footer">
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Suivant</button>
         </div>
-        
     </div>
 
     <!-- Étape 6 : Suppléments -->
     <div id="step6" class="slide">
         <div class="container">
-            <h2><i class="fas fa-seedling"></i> 6. Suppléments graines & toppings</h2>
+            <h2><img src="../../images/images_ingredients/graines de sésame_.png" alt="Suppléments" class="item-icon"> 6. Suppléments graines & toppings</h2>
             <div class="options checkboxes">
-                <h3><i class="fas fa-seedling"></i> Graines (+5 DZD)</h3>
-                <label><input type="checkbox" name="extras" value="graines_sesame"> <i class="fas fa-seedling"></i> Graines de sésame </label>
-                <label><input type="checkbox" name="extras" value="graines_chia"> <i class="fas fa-leaf"></i> Graines de chia </label>
-                <label><input type="checkbox" name="extras" value="graines_tournesol"> <i class="fas fa-sun"></i> Graines de tournesol </label>
-                <label><input type="checkbox" name="extras" value="graines_courge"> <i class="fas fa-seedling"></i> Graines de courge </label>
-                <label><input type="checkbox" name="extras" value="lin"> <i class="fas fa-leaf"></i> Lin</label>
-                <label><input type="checkbox" name="extras" value="pavot"> <i class="fas fa-dot-circle"></i> Pavot</label>
+                <h3><img src="../../images/images_ingredients/graines de sésame_.png" alt="Graines" class="item-icon"> Graines (+5 DZD)</h3>
+                <label><input type="checkbox" name="extras" value="graines_sesame"> <img src="../../images/images_ingredients/graines de sésame_.png" alt="Sésame" class="item-icon"> Graines de sésame </label>
+                <label><input type="checkbox" name="extras" value="graines_chia"> <img src="../../images/images_ingredients/graines de chia.png" alt="Chia" class="item-icon"> Graines de chia </label>
+                <label><input type="checkbox" name="extras" value="graines_tournesol"> <img src="../../images/images_ingredients/graines de tournesol_.png" alt="Tournesol" class="item-icon"> Graines de tournesol </label>
+                <label><input type="checkbox" name="extras" value="graines_courge"> <img src="../../images/images_ingredients/graines de courge_.png" alt="Courge" class="item-icon"> Graines de courge </label>
+                <label><input type="checkbox" name="extras" value="lin"> <img src="../../images/images_ingredients/lin.png" alt="Lin" class="item-icon"> Lin</label>
+                <label><input type="checkbox" name="extras" value="pavot"> <img src="../../images/images_ingredients/Pavot.png" alt="Pavot" class="item-icon"> Pavot</label>
                 
-                <h3><i class="fas fa-acorn"></i> Fruits secs & autres </h3>
-                <label><input type="checkbox" name="extras" value="noix_concasees"> <i class="fas fa-acorn"></i> Noix concassées</label>
-                <label><input type="checkbox" name="extras" value="amandes_effilees"> <i class="fas fa-seedling"></i> Amandes effilées</label>
-                <label><input type="checkbox" name="extras" value="noix_cajou"> <i class="fas fa-acorn"></i> Noix de cajou</label>
-                <label><input type="checkbox" name="extras" value="cranberries_sechees"> <i class="fas fa-berry"></i> Cranberries séchées</label>
+                <h3><img src="../../images/images_ingredients/Noix de cajou .png" alt="Fruits secs" class="item-icon"> Fruits secs & autres </h3>
+                <label><input type="checkbox" name="extras" value="noix_concasees"> <img src="../../images/images_ingredients/Noix concassées .png" alt="Noix concassées" class="item-icon"> Noix concassées</label>
+                <label><input type="checkbox" name="extras" value="amandes_effilees"> <img src="../../images/images_ingredients/amandes effilées_.png" alt="Amandes effilées" class="item-icon"> Amandes effilées</label>
+                <label><input type="checkbox" name="extras" value="noix_cajou"> <img src="../../images/images_ingredients/Noix de cajou .png" alt="Noix de cajou" class="item-icon"> Noix de cajou</label>
+                <label><input type="checkbox" name="extras" value="cranberries_sechees"> <img src="../../images/images_ingredients/cranberries séchées.png" alt="Cranberries" class="item-icon"> Cranberries séchées</label>
             </div>
         </div>
         <div class="nav-footer">
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Suivant</button>
         </div>
-    
     </div>
 
     <!-- Étape 7 : Croûtons -->
     <div id="stepCroutons" class="slide">
         <div class="container">
-            <h2><i class="fas fa-bread-slice"></i> 7. Choix de croûtons</h2>
+            <h2><img src="../../images/images_ingredients/croûton à l_ail_.png" alt="Croûtons" class="item-icon"> 7. Choix de croûtons</h2>
             <div class="options checkboxes">
-                <h3><i class="fas fa-bread-slice"></i> Croûtons(x5) (+25 DZD)</h3>
-                <label><input type="checkbox" name="croutons" value="ail"> <i class="fas fa-bread-slice"></i> Croûtons à l’ail</label>
-                <label><input type="checkbox" name="croutons" value="herbes"> <i class="fas fa-bread-slice"></i> Croûtons aux herbes (thym, romarin, basilic…)</label>
-                <label><input type="checkbox" name="croutons" value="fromage"> <i class="fas fa-bread-slice"></i> Croûtons au fromage (parmesan, gruyère…)</label>
-                <label><input type="checkbox" name="croutons" value="epices"> <i class="fas fa-bread-slice"></i> Croûtons épicés (paprika, piment, curry…)</label>
-                <label><input type="checkbox" name="croutons" value="beurre"> <i class="fas fa-bread-slice"></i> Croûtons au beurre</label>
-                <label><input type="checkbox" name="croutons" value="huile"> <i class="fas fa-bread-slice"></i> Croûtons à l’huile d’olive</label>
-                <label><input type="checkbox" name="croutons" value="sucre"> <i class="fas fa-bread-slice"></i> Croûtons sucrés (cannelle, sucre, vanille…)</label>
+                <h3><img src="../../images/images_ingredients/croûton à l_ail_.png" alt="Croûtons" class="item-icon"> Croûtons(x5) (+25 DZD)</h3>
+                <label><input type="checkbox" name="croutons" value="ail"> <img src="../../images/images_ingredients/croûton à l_ail_.png" alt="Ail" class="item-icon scale-image"> Croûtons à l'ail</label>
+                <label><input type="checkbox" name="croutons" value="herbes"> <img src="../../images/images_ingredients/croûton aux herbes_.png" alt="Herbes" class="item-icon scale-image"> Croûtons aux herbes (thym, romarin, basilic…)</label>
+                <label><input type="checkbox" name="croutons" value="fromage"> <img src="../../images/images_ingredients/croûton au fromage_.png" alt="Fromage" class="item-icon scale-image"> Croûtons au fromage (parmesan, gruyère…)</label>
+                <label><input type="checkbox" name="croutons" value="epices"> <img src="../../images/images_ingredients/croutons épices_.png" alt="Épices" class="item-icon scale-image"> Croûtons épicés (paprika, piment, curry…)</label>
+                <label><input type="checkbox" name="croutons" value="beurre"> <img src="../../images/images_ingredients/croûton au beurre.png" alt="Beurre" class="item-icon scale-image"> Croûtons au beurre</label>
+                <label><input type="checkbox" name="croutons" value="huile"> <img src="../../images/images_ingredients/Croûton à l_huile d_olive_.png" alt="Huile" class="item-icon"> Croûtons à l'huile d'olive</label>
+                <label><input type="checkbox" name="croutons" value="sucre"> <img src="../../images/images_ingredients/croûtons sucrés_.png" alt="Sucrés" class="item-icon scale-image"> Croûtons sucrés (cannelle, sucre, vanille…)</label>
             </div>
         </div>
         <div class="nav-footer">
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Suivant</button>
         </div>
-     
     </div>
 
     <!-- Étape 8 : Boissons -->
     <div id="step7" class="slide">
         <div class="container">
-            <h2><i class="fas fa-glass-whiskey"></i> 7. Choix de la boisson</h2>
+            <h2><img src="../../images/images_ingredients/Orange pressée.png" alt="Boissons" class="item-icon"> 7. Choix de la boisson</h2>
             <div class="options">
-                <h3><i class="fas fa-blender"></i> Smoothies (+3 DZD)</h3>
-                <label><input type="checkbox" name="drink" value="smoothie_banane"> <i class="fas fa-blender"></i> Banane (+250 DZD)</label>
-                <label><input type="checkbox" name="drink" value="smoothie_fraise"> <i class="fas fa-blender"></i> Fraise (+250 DZD)</label>
-                <label><input type="checkbox" name="drink" value="smoothie_mangue"> <i class="fas fa-blender"></i> Mangue (+300 DZD)</label>
-                <label><input type="checkbox" name="drink" value="smoothie_fruits_rouges"> <i class="fas fa-blender"></i> Fruits rouges (+300 DZD)</label>
-                <label><input type="checkbox" name="drink" value="smoothie_ananas_coco"> <i class="fas fa-blender"></i> Ananas-coco (+350 DZD)</label>
-                <label><input type="checkbox" name="drink" value="smoothie_exotique"> <i class="fas fa-blender"></i> Cocktail exotique (+350 DZD)</label>
+                <h3><img src="../../images/images_ingredients/Smoothie bananes.png" alt="Smoothies" class="item-icon"> Smoothies </h3>
+                <label><input type="checkbox" name="drink" value="smoothie_banane"> <img src="../../images/images_ingredients/Smoothie bananes.png" alt="Banane" class="item-icon"> Banane (+250 DZD)</label>
+                <label><input type="checkbox" name="drink" value="smoothie_fraise"> <img src="../../images/images_ingredients/Smoothie fraise .png" alt="Fraise" class="item-icon"> Fraise (+250 DZD)</label>
+                <label><input type="checkbox" name="drink" value="smoothie_mangue"> <img src="../../images/images_ingredients/Smoothie mangue.png" alt="Mangue" class="item-icon"> Mangue (+300 DZD)</label>
+                <label><input type="checkbox" name="drink" value="smoothie_fruits_rouges"> <img src="../../images/images_ingredients/Smoothie fruits rouges .png" alt="Fruits rouges" class="item-icon"> Fruits rouges (+300 DZD)</label>
+                <label><input type="checkbox" name="drink" value="smoothie_ananas_coco"> <img src="../../images/images_ingredients/Ananas-coco.png" alt="Ananas-coco" class="item-icon"> Ananas-coco (+350 DZD)</label>
+                <label><input type="checkbox" name="drink" value="smoothie_exotique"> <img src="../../images/images_ingredients/Cocktail exotique_.png" alt="Exotique" class="item-icon"> Cocktail exotique (+350 DZD)</label>
 
-                <h3><i class="fas fa-glass-whiskey"></i> Jus frais (+2.5 DZD)</h3>
-                <label><input type="checkbox" name="drink" value="jus_orange"> <i class="fas fa-glass-whiskey"></i> Orange pressée (+200 DZD)</label>
-                <label><input type="checkbox" name="drink" value="jus_citronnade"> <i class="fas fa-glass-whiskey"></i> Citronnade (+200 DZD)</label>
-                <label><input type="checkbox" name="drink" value="jus_pomme_gingembre"> <i class="fas fa-glass-whiskey"></i> Pomme-gingembre (+250 DZD)</label>
-                <label><input type="checkbox" name="drink" value="jus_carotte_orange"> <i class="fas fa-glass-whiskey"></i> Carotte-orange (+250 DZD)</label>
+                <h3><img src="../../images/images_ingredients/Orange pressée.png" alt="Jus" class="item-icon"> Jus frais </h3>
+                <label><input type="checkbox" name="drink" value="jus_orange"> <img src="../../images/images_ingredients/Orange pressée.png" alt="Orange" class="item-icon"> Orange pressée (+200 DZD)</label>
+                <label><input type="checkbox" name="drink" value="jus_citronnade"> <img src="../../images/images_ingredients/Citronnade_.png" alt="Citronnade" class="item-icon"> Citronnade (+200 DZD)</label>
+                <label><input type="checkbox" name="drink" value="jus_pomme_gingembre"> <img src="../../images/images_ingredients/Pomme gingembre_.png" alt="Pomme-gingembre" class="item-icon"> Pomme-gingembre (+250 DZD)</label>
+                <label><input type="checkbox" name="drink" value="jus_carotte_orange"> <img src="../../images/images_ingredients/Carottes oranges.png" alt="Carotte-orange" class="item-icon"> Carotte-orange (+250 DZD)</label>
 
-                <h3><i class="fas fa-tint"></i> Boissons classiques (+1.5DA)</h3>
-                <label><input type="checkbox" name="drink" value="eau_plate"> <i class="fas fa-tint"></i> Eau plate (+25 DZD)</label>
-                <label><input type="checkbox" name="drink" value="eau_petillante"> <i class="fas fa-tint"></i> Eau pétillante (+30 DZD)</label>
-                <label><input type="checkbox" name="drink" value="soda"> <i class="fas fa-glass-whiskey"></i> Soda (+60 DZD)</label>
-                <label><input type="checkbox" name="drink" value="the_glace"> <i class="fas fa-mug-hot"></i> Thé glacé maison (+60 DZD)</label>
+                <h3><img src="../../images/images_ingredients/eau plate_.png" alt="Classiques" class="item-icon"> Boissons classiques </h3>
+                <label><input type="checkbox" name="drink" value="eau_plate"> <img src="../../images/images_ingredients/eau plate_.png" alt="Eau plate" class="item-icon"> Eau plate (+25 DZD)</label>
+                <label><input type="checkbox" name="drink" value="eau_petillante"> <img src="../../images/images_ingredients/eau pétillante_.png" alt="Eau pétillante" class="item-icon"> Eau pétillante (+30 DZD)</label>
+                <label><input type="checkbox" name="drink" value="soda"> <img src="../../images/images_ingredients/soda_.png" alt="Soda" class="item-icon"> Soda (+60 DZD)</label>
+                <label><input type="checkbox" name="drink" value="the_glace"> <img src="../../images/images_ingredients/thé glacé maison.png" alt="Thé glacé" class="item-icon"> Thé glacé maison (+60 DZD)</label>
             </div>
         </div>
         <div class="nav-footer">
             <button class="back-arrow" onclick="prevSlide()">←</button>
             <button onclick="nextSlide()">Voir mon panier</button>
         </div>
-   
     </div>
 
     <!-- Panier -->
@@ -281,12 +270,10 @@
         </div>
     </div>
 
-
     <!-- Ticket de commande -->
     <div id="ticketContainer" class="ticket-container">
         <div class="ticket-header">
             <h3><i class="fas fa-receipt"></i> Votre Commande</h3>
-     
         </div>
         <div id="ticketItems" class="ticket-items">
             <!-- Les éléments seront ajoutés dynamiquement ici -->
